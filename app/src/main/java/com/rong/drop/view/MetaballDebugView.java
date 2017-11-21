@@ -120,12 +120,13 @@ public class MetaballDebugView extends View {
 
     private void initMetaballs() {
         Circle circlePath = new Circle();
-        circlePath.center = new float[]{(radius), radius};
+        circlePath.center = new float[]{(-100000), -100000};
         circlePath.radius = radius;
         circlePaths.add(circlePath);
 
         circlePath = new Circle();
-        circlePath.center = new float[]{this.getMeasuredWidth() / 2, this.getMeasuredHeight() / 2};
+        circlePath.center = new float[]{this.getMeasuredWidth() / 2, this.getMeasuredHeight() / 2 - this
+                .getMeasuredHeight() / 30};
         circlePath.radius = this.getMeasuredWidth() / 4;
         circlePaths.add(circlePath);
     }
