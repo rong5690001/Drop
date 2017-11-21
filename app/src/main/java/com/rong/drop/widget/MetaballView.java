@@ -1,4 +1,4 @@
-package com.rong.drop.view;
+package com.rong.drop.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;

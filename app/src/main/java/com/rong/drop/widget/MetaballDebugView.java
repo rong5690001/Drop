@@ -1,4 +1,4 @@
-package com.rong.drop.view;
+package com.rong.drop.widget;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -28,7 +28,7 @@ public class MetaballDebugView extends View {
     private Paint paint = new Paint();
 
     private float handleLenRate = 2f;
-    private float radius = 80f;
+    private float radius = 160f;
     private final float SCALE_RATE = 0.3f;
     private ArrayList<Circle> circlePaths = new ArrayList<>();
     private float mv = 0.6f;
@@ -127,7 +127,7 @@ public class MetaballDebugView extends View {
         circlePath = new Circle();
         circlePath.center = new float[]{this.getMeasuredWidth() / 2, this.getMeasuredHeight() / 2 - this
                 .getMeasuredHeight() / 30};
-        circlePath.radius = this.getMeasuredWidth() / 4;
+        circlePath.radius = this.getMeasuredWidth() * 2 / 9;
         circlePaths.add(circlePath);
     }
 
@@ -180,7 +180,7 @@ public class MetaballDebugView extends View {
 
 
         if (d > maxDistance) {
-            canvas.drawCircle(ball2.centerX(), ball2.centerY(), circle2.radius, paint);
+            canvas.drawCircle(ball2.centerX(), ball2.centerY(), circle2.radius * (1 + SCALE_RATE), paint);
         } else {
             float scale2 = 1 + SCALE_RATE * (1 - d / maxDistance);
             radius2 *= scale2;

@@ -15,5 +15,6 @@ class MainActivity : BaseActivity() {
         SystemBarUtil.immersiveStatusBar(this, 0f)
         setTypeface(TextUtils.MONTSERRAT_BOLD, findViewById(mainTitle))
         setTypeface(TextUtils.SPOON_BOLD, findViewById(totalCapital))
+        setTypeface(TextUtils.MONTSERRAT_REGULAR, findViewById(R.id.hint))
     }
 }
