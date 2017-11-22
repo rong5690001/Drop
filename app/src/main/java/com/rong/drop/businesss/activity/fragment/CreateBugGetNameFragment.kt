@@ -1,26 +1,12 @@
 package com.rong.drop.businesss.activity.fragment
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
-
 import com.rong.drop.R
 import com.rong.drop.base.BaseFragment
 import com.rong.drop.utils.TextUtils
+import kotlinx.android.synthetic.main.fragment_create_bug_get_name.*
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [CreateBugGetNameFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [CreateBugGetNameFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CreateBugGetNameFragment : BaseFragment() {
 
     override val layoutId: Int
@@ -32,7 +18,8 @@ class CreateBugGetNameFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setTypeface(TextUtils.MONTSERRAT_BOLD, view!!.findViewById(R.id.editText))
+        setTypeface(TextUtils.MONTSERRAT_REGULAR, editText)
+        setTypeface(TextUtils.OPENSANS_REGULAR, hint)
     }
 
     companion object {
