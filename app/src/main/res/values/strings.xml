@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Drop</string>
     <string name="main_title">Personal Budget</string>
+
+    <string name="next">NEXT</string>
+    <string name="done">DONE</string>
 </resources>
