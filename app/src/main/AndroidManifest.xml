@@ -9,6 +9,7 @@
         android:logo="@mipmap/logo"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
+        android:name=".DropApplication"
         android:theme="@style/NoTitleTheme">
         <activity
             android:name=".MainActivity"

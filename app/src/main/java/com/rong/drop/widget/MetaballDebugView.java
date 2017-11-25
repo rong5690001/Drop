@@ -36,6 +36,7 @@ public class MetaballDebugView extends View {
     private ValueAnimator mValueAnimator;//回收动画
     private MetaballListener mMetaballListener;
     private boolean isIncome = false;
+    private boolean operationValid = true;
 
     public MetaballDebugView(Context context) {
         super(context);
@@ -194,7 +195,7 @@ public class MetaballDebugView extends View {
 
         if (d > maxDistance
                 || d <= Math.abs(radius1 - radius2)) {
-            if (mMetaballListener != null && d == 0 && !isIncome) {//完成回调
+            if (mMetaballListener != null && d == 0 && !isIncome && operationValid) {//完成回调
                 mMetaballListener.onExpend();
             }
             return;
@@ -300,11 +301,17 @@ public class MetaballDebugView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 isIncome = d < circle1.radius ? false : true;
+                operationValid = true;
                 break;
             case MotionEvent.ACTION_MOVE:
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
+                if (isIncome) {
+                    operationValid = d < maxDistance ? true : false;
+                } else {
+                    operationValid = d < maxDistance ? false : true;
+                }
                 if (d < maxDistance) {
                     startAnimation();
                 } else {
@@ -357,7 +364,7 @@ public class MetaballDebugView extends View {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                if (mMetaballListener != null) {
+                if (mMetaballListener != null && isIncome && operationValid) {
                     mMetaballListener.onIncome();
                 }
             }
