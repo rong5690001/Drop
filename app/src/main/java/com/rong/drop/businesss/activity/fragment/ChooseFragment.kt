@@ -49,12 +49,13 @@ class ChooseFragment : BaseFragment() {
         mPageType = arguments.getInt(KEY_PAGE_TYPE)
         setTypeface(TextUtils.MONTSERRAT_BOLD, title)
         setTypeface(TextUtils.OPENSANS_REGULAR, hint)
-        if(mPageType == PAGE_TYPE_MONEY) {
+        if (mPageType == PAGE_TYPE_MONEY) {
             title.text = "币种"
+            mAdapter = SimpleRecyclerAdapter(context, moneyTypes)
         } else {
             title.text = "START DATE"
+            mAdapter = SimpleRecyclerAdapter(context, startDays)
         }
-        mAdapter = SimpleRecyclerAdapter(context, moneyTypes)
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = linearLayoutManager

@@ -8,6 +8,7 @@ import com.rong.drop.R
 import com.rong.drop.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.ChooseFragment
 import com.rong.drop.businesss.activity.fragment.CreateBugGetNameFragment
+import com.rong.drop.businesss.activity.fragment.InputFragment
 import com.rong.drop.utils.TextUtils
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
@@ -39,6 +40,12 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
             }
             2 -> {
                 fragment = ChooseFragment.newChooseStartDay()
+            }
+            3 -> {
+                fragment = InputFragment.newAmount()
+            }
+            4 -> {
+                fragment = InputFragment.newAmountLeft()
             }
             else -> {
                 fragment = CreateBugGetNameFragment.newInstance()
