@@ -17,6 +17,7 @@ import com.rong.drop.utils.TextUtils
 abstract open class BaseFragment : Fragment() {
 
     abstract val layoutId: Int
+    abstract fun initView(savedInstanceState: Bundle?)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,11 @@ abstract open class BaseFragment : Fragment() {
             view = LayoutInflater.from(context).inflate(R.layout.fragment_base, container, false)
         }
         return view;
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        initView(savedInstanceState)
     }
 
     fun setTypeface(typeface: String, textView: TextView) {

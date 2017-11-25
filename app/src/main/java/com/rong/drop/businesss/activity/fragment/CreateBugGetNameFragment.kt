@@ -1,7 +1,6 @@
 package com.rong.drop.businesss.activity.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import com.rong.drop.R
 import com.rong.drop.base.BaseFragment
 import com.rong.drop.utils.TextUtils
@@ -12,12 +11,7 @@ class CreateBugGetNameFragment : BaseFragment() {
     override val layoutId: Int
         get() = R.layout.fragment_create_bug_get_name
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun initView(savedInstanceState: Bundle?) {
         setTypeface(TextUtils.MONTSERRAT_REGULAR, editText)
         setTypeface(TextUtils.OPENSANS_REGULAR, hint)
     }

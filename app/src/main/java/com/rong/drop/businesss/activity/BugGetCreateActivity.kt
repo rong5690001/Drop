@@ -1,9 +1,12 @@
 package com.rong.drop.businesss.activity
 
+import android.content.Intent
 import android.support.v4.app.Fragment
 import android.view.View
+import com.rong.drop.MainActivity
 import com.rong.drop.R
 import com.rong.drop.base.BaseActivity
+import com.rong.drop.businesss.activity.fragment.ChooseFragment
 import com.rong.drop.businesss.activity.fragment.CreateBugGetNameFragment
 import com.rong.drop.utils.TextUtils
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
@@ -31,11 +34,17 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
         var fragment: Fragment
         mCurrentIndex = Math.min(++mCurrentIndex, 6)
         when (mCurrentIndex) {
+            1 -> {
+                fragment = ChooseFragment.newChooseMoneyTypeFragment()
+            }
+            2 -> {
+                fragment = ChooseFragment.newChooseStartDay()
+            }
             else -> {
                 fragment = CreateBugGetNameFragment.newInstance()
-                mFragments[mCurrentIndex] = fragment
             }
         }
+        mFragments[mCurrentIndex] = fragment
         replaceFragment(fragment)
     }
 
@@ -75,6 +84,6 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun done() {
-
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
