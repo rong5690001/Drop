@@ -6,9 +6,7 @@ import android.view.View
 import com.rong.drop.MainActivity
 import com.rong.drop.R
 import com.rong.drop.base.BaseActivity
-import com.rong.drop.businesss.activity.fragment.ChooseFragment
-import com.rong.drop.businesss.activity.fragment.CreateBugGetNameFragment
-import com.rong.drop.businesss.activity.fragment.InputFragment
+import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.utils.TextUtils
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
@@ -31,6 +29,14 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
         replaceFragment(mFragments[mCurrentIndex]!!)
     }
 
+    override fun onBackPressed() {
+        if (mCurrentIndex == 0) {
+            super.onBackPressed()
+        } else {
+            previous()
+        }
+    }
+
     private fun next() {
         var fragment: Fragment
         mCurrentIndex = Math.min(++mCurrentIndex, 6)
@@ -46,6 +52,12 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
             }
             4 -> {
                 fragment = InputFragment.newAmountLeft()
+            }
+            5 -> {
+                fragment = SwitchFragment.newFragment()
+            }
+            6 -> {
+                fragment = SetUpCompleteFragment.newFragment()
             }
             else -> {
                 fragment = CreateBugGetNameFragment.newInstance()
