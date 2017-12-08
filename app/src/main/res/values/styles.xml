@@ -20,6 +20,10 @@
     </style>
 
     <style name="SplashTheme" parent="FullScreenTheme">
-        <item name="android:windowBackground">@mipmap/home_bg</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="translationTheme" parent="NoTitleTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 </resources>

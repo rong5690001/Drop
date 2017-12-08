@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.rong.drop.base.BaseActivity;
-import com.rong.drop.businesss.activity.BugGetCreateActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

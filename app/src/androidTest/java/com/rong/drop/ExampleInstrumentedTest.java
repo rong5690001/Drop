@@ -23,4 +23,8 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.rong.drop", appContext.getPackageName());
     }
+
+    public static void main(String arg[]){
+        System.out.println("main test");
+    }
 }

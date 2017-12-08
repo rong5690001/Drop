@@ -14,14 +14,10 @@ import com.rong.drop.utils.TextUtils
  * A simple [Fragment] subclass.
  * create an instance of this fragment.
  */
-abstract open class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
 
     abstract val layoutId: Int
     abstract fun initView(savedInstanceState: Bundle?)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

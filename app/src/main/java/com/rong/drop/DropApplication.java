@@ -3,19 +3,29 @@ package com.rong.drop;
 import android.app.Application;
 import android.content.Context;
 
+import com.rong.drop.dragger.component.AppComponent;
+import com.rong.drop.dragger.component.DaggerAppComponent;
+import com.rong.drop.dragger.module.AppModule;
+
 /**
  * Created by chen.huarong on 2017/11/25.
  */
 
 public class DropApplication extends Application {
 
-    private static Context sContext;
+    private static Context context;
+    private AppComponent mAppComponent;
 
-    public DropApplication() {
-        this.sContext = this;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        context = this;
+        mAppComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
     }
 
-    public static Context getContext(){
-        return sContext;
+    public static Context getContext() {
+        return context;
     }
 }
