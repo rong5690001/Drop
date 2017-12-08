@@ -80,4 +80,5 @@ public class AccountNode extends BaseNode {
     @Ignore
     public static int LINE_STATUS_NONE = LINE_STATUS_BOTTOM + 1;
 
+
 }
