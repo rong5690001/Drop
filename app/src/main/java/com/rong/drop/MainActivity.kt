@@ -1,14 +1,16 @@
 package com.rong.drop
 
-import com.rong.drop.base.BaseActivity
+import com.rong.drop.framework.base.BaseActivity
+import com.rong.drop.businesss.view.DefaultView
+import com.rong.drop.presenter.MainPresenter
 import com.rong.drop.utils.SystemBarUtil
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
+import com.rong.drop.viewmodel.MainViewModel
 import com.rong.drop.widget.MetaballDebugView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(), MetaballDebugView.MetaballListener {
-
+class MainActivity : BaseActivity<MainPresenter, DefaultView, MainViewModel>(), MetaballDebugView.MetaballListener {
     override val layoutId: Int
         get() = R.layout.activity_main
 
@@ -18,6 +20,14 @@ class MainActivity : BaseActivity(), MetaballDebugView.MetaballListener {
         setTypeface(TextUtils.SPOON_BOLD, totalCapital)
         setTypeface(TextUtils.MONTSERRAT_REGULAR, hint)
         metaballDebugView.setMetaballListener(this)
+    }
+
+    override fun buildPresenter(): MainPresenter {
+        return MainPresenter()
+    }
+
+    override fun buildViewModel(): MainViewModel {
+        return MainViewModel()
     }
 
     override fun onIncome() {

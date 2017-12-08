@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import com.rong.drop.R
-import com.rong.drop.base.BaseFragment
+import com.rong.drop.framework.base.BaseFragment
 import com.rong.drop.businesss.adapter.SimpleRecyclerAdapter
 import com.rong.drop.utils.TextUtils
 import kotlinx.android.synthetic.main.fragment_choose_money_type.*

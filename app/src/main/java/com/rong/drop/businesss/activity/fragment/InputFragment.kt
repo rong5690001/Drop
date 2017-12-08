@@ -4,7 +4,7 @@ package com.rong.drop.businesss.activity.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.rong.drop.R
-import com.rong.drop.base.BaseFragment
+import com.rong.drop.framework.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_choose_money_type.*
 
 

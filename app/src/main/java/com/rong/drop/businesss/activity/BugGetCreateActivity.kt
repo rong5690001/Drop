@@ -5,10 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.View
 import com.rong.drop.MainActivity
 import com.rong.drop.R
-import com.rong.drop.base.BaseActivity
+import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.utils.TextUtils
-import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
 class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
     private val mFragments = arrayOfNulls<Fragment>(7)

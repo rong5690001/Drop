@@ -2,7 +2,7 @@ package com.rong.drop.businesss.activity.fragment
 
 import android.os.Bundle
 import com.rong.drop.R
-import com.rong.drop.base.BaseFragment
+import com.rong.drop.framework.base.BaseFragment
 import com.rong.drop.utils.TextUtils
 import kotlinx.android.synthetic.main.fragment_create_bug_get_name.*
 

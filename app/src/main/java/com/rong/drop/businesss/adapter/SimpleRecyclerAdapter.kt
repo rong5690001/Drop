@@ -2,7 +2,7 @@ package com.rong.drop.businesss.adapter
 
 import android.content.Context
 import com.rong.drop.R
-import com.rong.drop.base.BaseAdapter
+import com.rong.drop.framework.base.BaseAdapter
 import org.byteam.superadapter.SuperViewHolder
 import kotlin.collections.ArrayList
 

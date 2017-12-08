@@ -1,4 +1,4 @@
-package com.rong.drop.base
+package com.rong.drop.framework.base
 
 import android.content.Context
 import org.byteam.superadapter.IMulItemViewType
