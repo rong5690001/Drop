@@ -1,0 +1,78 @@
+[
+  {
+    "title": "USD",
+    "detail": "$"
+  },
+  {
+    "title": "RMB",
+    "detail": "¥"
+  },
+  {
+    "title": "EUR",
+    "detail": "€"
+  },
+  {
+    "title": "BGN",
+    "detail": "лв"
+  },
+  {
+    "title": "GBP",
+    "detail": "￡"
+  },
+  {
+    "title": "SGD",
+    "detail": "S$"
+  },
+  {
+    "title": "JPY",
+    "detail": "J￥"
+  },
+  {
+    "title": "ARS",
+    "detail": "ARS$"
+  },
+  {
+    "title": "VND",
+    "detail": "₫"
+  },
+  {
+    "title": "GLY",
+    "detail": "¤"
+  },
+  {
+    "title": "THB",
+    "detail": "฿"
+  },
+  {
+    "title": "RUR",
+    "detail": "Br"
+  },
+  {
+    "title": "ATS",
+    "detail": "₭"
+  },
+  {
+    "title": "PHP",
+    "detail": "₱"
+  },
+  {
+    "title": "IDR",
+    "detail": "Rp"
+  },
+  {
+    "title": "KRW",
+    "detail": "₩"
+  },
+  {
+    "title": "KHR",
+    "detail": "៛"
+  },
+  {
+    "title": "IRR",
+    "detail": "﷼"
+  },
+  {
+    "title": "SUR",
+    "detail": "руб"
+  }
+]
