@@ -2,7 +2,6 @@ package com.rong.drop;
 
 import android.app.Application;
 import android.content.Context;
-
 import com.rong.drop.dragger.component.AppComponent;
 import com.rong.drop.dragger.component.DaggerAppComponent;
 import com.rong.drop.dragger.module.AppModule;

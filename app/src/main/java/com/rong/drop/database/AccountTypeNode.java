@@ -1,5 +1,6 @@
 package com.rong.drop.database;
 
+import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 
 /**
@@ -7,7 +8,7 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account_type")
-public class AccountTypeNode extends BaseNode {
+public class AccountTypeNode extends RealmObject {
     /**
      * 使用联合约束时 一定要命名uniqueIndexName 约束名称一致 否则为唯一约束
      */

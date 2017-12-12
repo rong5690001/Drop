@@ -18,11 +18,14 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
     abstract fun initView()
     abstract fun buildPresenter(): P
     abstract fun buildViewModel(): VM
+    abstract fun getIView(): V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
         initView()
+        view = getIView()
+        viewModel = buildViewModel()
         presenter = buildPresenter()
         checkNotNull(presenter)
         presenter!!.attachView(view, viewModel)
@@ -30,6 +33,12 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
 
     fun setTypeface(typeface: String, textView: TextView) {
         TextUtils.setTypeFace(typeface, textView)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        checkNotNull(presenter)
+        presenter!!.detachView()
     }
 
     fun getViewModel() = {

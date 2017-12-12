@@ -9,7 +9,7 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account")
-public class AccountNode extends BaseNode {
+public class AccountNode extends RealmObject {
 
     /**
      * 收入支出类型
@@ -49,7 +49,7 @@ public class AccountNode extends BaseNode {
      */
 //    @DatabaseField(canBeNull = true, foreign = true, columnName = "account_book_id"
 //            , foreignAutoRefresh = true)
-    public AccountBookNode account_book_id;
+    public String account_book_id;
     @Ignore
     public static final String ACCOUNT_BOOK_ID = "account_book_id";
 

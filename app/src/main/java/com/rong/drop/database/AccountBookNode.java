@@ -1,8 +1,6 @@
 package com.rong.drop.database;
 
 
-import java.io.Serializable;
-
 import io.realm.annotations.Ignore;
 
 /**
@@ -11,7 +9,7 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account_book")
-public class AccountBookNode implements Serializable {
+public class AccountBookNode extends BaseNode {
     /**
      * 账本名称
      */

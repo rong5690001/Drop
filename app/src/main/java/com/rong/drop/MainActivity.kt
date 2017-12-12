@@ -6,11 +6,24 @@ import com.rong.drop.presenter.MainPresenter
 import com.rong.drop.utils.SystemBarUtil
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
+import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MainViewModel
 import com.rong.drop.widget.MetaballDebugView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<MainPresenter, DefaultView, MainViewModel>(), MetaballDebugView.MetaballListener {
+class MainActivity : BaseActivity<MainPresenter, DefaultView<MainViewModel>, MainViewModel>()
+        , MetaballDebugView.MetaballListener, DefaultView<MainViewModel> {
+
+    override fun onSuccess(viewModel: MainViewModel) {
+    }
+
+    override fun onFailed(viewModel: FaildViewModel) {
+    }
+
+    override fun getIView(): DefaultView<MainViewModel> {
+        return this
+    }
+
     override val layoutId: Int
         get() = R.layout.activity_main
 

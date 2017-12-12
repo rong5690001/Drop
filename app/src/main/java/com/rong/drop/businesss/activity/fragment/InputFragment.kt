@@ -4,20 +4,19 @@ package com.rong.drop.businesss.activity.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.rong.drop.R
-import com.rong.drop.framework.base.BaseFragment
+import com.rong.drop.framework.simple.SimpleFragment
 import kotlinx.android.synthetic.main.fragment_choose_money_type.*
-
 
 /**
  * A simple [Fragment] subclass.
  */
-class InputFragment() : BaseFragment() {
+class InputFragment : SimpleFragment() {
 
     override val layoutId: Int = R.layout.fragment_input
     private var pageType: Int = PAGE_TYPE_AMOUNT
 
     companion object {
-        private val KEY_PAGE_TYPE = "pageType";
+        private val KEY_PAGE_TYPE = "pageType"
         private val PAGE_TYPE_AMOUNT = 0
         private val PAGE_TYPE_AMOUNTLEFT = 1
         fun newAmount(): InputFragment {

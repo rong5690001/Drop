@@ -7,10 +7,31 @@ import com.rong.drop.MainActivity
 import com.rong.drop.R
 import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
+import com.rong.drop.businesss.view.DefaultView
+import com.rong.drop.framework.simple.SimpleFragment
+import com.rong.drop.presenter.BugGetCreatePresenter
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.viewmodel.BugGetCreateViewModel
+import com.rong.drop.viewmodel.FaildViewModel
+import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
-class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
-    private val mFragments = arrayOfNulls<Fragment>(7)
+class BugGetCreateActivity : BaseActivity<BugGetCreatePresenter, DefaultView<BugGetCreateViewModel>, BugGetCreateViewModel>()
+        , View.OnClickListener, DefaultView<BugGetCreateViewModel> {
+
+
+    override fun getIView(): DefaultView<BugGetCreateViewModel> {
+        return this
+    }
+
+    override fun buildPresenter(): BugGetCreatePresenter {
+        return BugGetCreatePresenter()
+    }
+
+    override fun buildViewModel(): BugGetCreateViewModel {
+        return BugGetCreateViewModel()
+    }
+
+    private val mFragments = arrayOfNulls<SimpleFragment>(7)
 
 
     private var mCurrentIndex = -1
@@ -22,6 +43,15 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
         System.out.println("int.....")
         next()
     }
+
+    override fun onSuccess(viewModel: BugGetCreateViewModel) {
+
+    }
+
+    override fun onFailed(viewModel: FaildViewModel) {
+
+    }
+
 
     private fun previous() {
         mCurrentIndex = Math.max(--mCurrentIndex, 0)
@@ -37,7 +67,8 @@ class BugGetCreateActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun next() {
-        var fragment: Fragment
+        var fragment: SimpleFragment
+        //取值
         mCurrentIndex = Math.min(++mCurrentIndex, 6)
         when (mCurrentIndex) {
             1 -> {

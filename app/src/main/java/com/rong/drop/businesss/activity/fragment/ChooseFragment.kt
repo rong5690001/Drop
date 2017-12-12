@@ -3,18 +3,26 @@ package com.rong.drop.businesss.activity.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.widget.AdapterView
 import com.rong.drop.R
-import com.rong.drop.framework.base.BaseFragment
+import com.rong.drop.businesss.activity.BugGetCreateActivity
 import com.rong.drop.businesss.adapter.SimpleRecyclerAdapter
+import com.rong.drop.framework.simple.SimpleFragment
+import com.rong.drop.presenter.DefaultPresenter
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.viewmodel.DefaultViewModel
 import kotlinx.android.synthetic.main.fragment_choose_money_type.*
+import kotlinx.android.synthetic.main.item_simple_recycler.view.*
+import org.byteam.superadapter.OnItemClickListener
 
 /**
  * A simple [Fragment] subclass.
  * Use the [ChooseFragment.newChooseMoneyTypeFragment] factory method to
  * create an instance of this fragment.
  */
-class ChooseFragment : BaseFragment() {
+class ChooseFragment : SimpleFragment(){
+
     override val layoutId: Int = R.layout.fragment_choose_money_type
 
     private val moneyTypes = arrayOf("￥CNY", "\$USD", "\$HKD", "\$NHD")
@@ -52,9 +60,15 @@ class ChooseFragment : BaseFragment() {
         if (mPageType == PAGE_TYPE_MONEY) {
             title.text = "币种"
             mAdapter = SimpleRecyclerAdapter(context, moneyTypes)
+            mAdapter!!.setOnItemClickListener { itemView, _, _ ->
+                (activity as BugGetCreateActivity).viewModel.typeName = itemView.simpleValue.text.toString()
+            }
         } else {
             title.text = "START DATE"
             mAdapter = SimpleRecyclerAdapter(context, startDays)
+            mAdapter!!.setOnItemClickListener { itemView, _, position ->
+//                (activity as BugGetCreateActivity).viewModel.typeName = itemView.simpleValue.text.toString()
+            }
         }
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
