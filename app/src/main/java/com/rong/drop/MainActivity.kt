@@ -1,8 +1,10 @@
 package com.rong.drop
 
-import com.rong.drop.framework.base.BaseActivity
+import com.rong.drop.bean.AddBillBean
 import com.rong.drop.businesss.view.DefaultView
+import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.presenter.MainPresenter
+import com.rong.drop.utils.JsonUtils
 import com.rong.drop.utils.SystemBarUtil
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
@@ -33,6 +35,9 @@ class MainActivity : BaseActivity<MainPresenter, DefaultView<MainViewModel>, Mai
         setTypeface(TextUtils.SPOON_BOLD, totalCapital)
         setTypeface(TextUtils.MONTSERRAT_REGULAR, hint)
         metaballDebugView.setMetaballListener(this)
+        //TODO
+        var addBillBeans = JsonUtils.parseFile(this, Array<AddBillBean>::class.java, R.raw.addbill)
+        ToastUtil.makeToast(addBillBeans.get(0).title)
     }
 
     override fun buildPresenter(): MainPresenter {

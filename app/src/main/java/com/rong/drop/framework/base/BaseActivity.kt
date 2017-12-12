@@ -3,6 +3,7 @@ package com.rong.drop.framework.base
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import com.rong.drop.DropApplication
 import com.rong.drop.utils.TextUtils
 
 /**
@@ -32,6 +33,11 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
 
     fun setTypeface(typeface: String, textView: TextView) {
         TextUtils.setTypeFace(typeface, textView)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        DropApplication.mCurrentActivity = this
     }
 
     override fun onDestroy() {

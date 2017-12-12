@@ -2,6 +2,8 @@ package com.rong.drop.businesss.activity.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import com.rong.drop.R
 import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleFragment
@@ -40,9 +42,38 @@ class InputFragment : SimpleFragment() {
         pageType = arguments.getInt(KEY_PAGE_TYPE)
         if (pageType == PAGE_TYPE_AMOUNT) {
             title.text = "BUDGET AMOUNT"
-            (activity as BudGetCreateActivity).viewModel.accountBudget = Integer.parseInt(editText.text.toString())
+            editText.addTextChangedListener(object : TextWatcher{
+                override fun afterTextChanged(s: Editable?) {
+                    var value = editText.text.toString()
+                    if (value.isNotEmpty()) {
+                        (activity as BudGetCreateActivity).viewModel.accountBudget = Integer.parseInt(editText.text.toString())
+                    }
+                }
+
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                }
+
+            })
         } else {
             title.text = "AMOUNT LEFT"
+            editText.addTextChangedListener(object : TextWatcher{
+                override fun afterTextChanged(s: Editable?) {
+                    var value = editText.text.toString()
+                    if (value.isNotEmpty()) {
+                        (activity as BudGetCreateActivity).viewModel.amountLeft = Integer.parseInt(editText.text.toString())
+                    }
+                }
+
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                }
+
+            })
         }
     }
 

@@ -1,7 +1,9 @@
 package com.rong.drop;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+
 import com.rong.drop.dragger.component.AppComponent;
 import com.rong.drop.dragger.component.DaggerAppComponent;
 import com.rong.drop.dragger.module.AppModule;
@@ -15,6 +17,7 @@ public class DropApplication extends Application {
 
     private static Context context;
     private AppComponent mAppComponent;
+    public static Activity mCurrentActivity;
 
     @Override
     public void onCreate() {

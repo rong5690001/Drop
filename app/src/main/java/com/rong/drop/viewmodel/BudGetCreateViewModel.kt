@@ -10,5 +10,6 @@ class BudGetCreateViewModel : BaseViewModel() {
     lateinit var bookName: String
     lateinit var typeName: String
     var accountBudget: Int = 0
+    var amountLeft: Int = 0
 
 }
