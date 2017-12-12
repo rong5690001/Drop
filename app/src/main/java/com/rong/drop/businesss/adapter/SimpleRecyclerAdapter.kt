@@ -11,7 +11,7 @@ import kotlin.collections.ArrayList
  */
 class SimpleRecyclerAdapter : BaseAdapter<String> {
 
-    private var selectedIndex: Int = 0
+    var selectedIndex: Int = 0
 
     constructor(context: Context?, items: Array<String>)
             : super(context, ArrayList<String>(items.asList()), R.layout.item_simple_recycler) {
@@ -22,8 +22,8 @@ class SimpleRecyclerAdapter : BaseAdapter<String> {
     }
 
     override fun onBind(holder: SuperViewHolder?, viewType: Int, layoutPosition: Int, item: String?) {
-        holder!!.setText(R.id.simpleValue, item)
-        holder.itemView.isSelected = layoutPosition == selectedIndex
+        holder?.setText(R.id.simpleValue, item)
+        holder?.itemView?.isSelected = layoutPosition == selectedIndex
     }
 
 

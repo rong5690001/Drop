@@ -27,8 +27,7 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
         view = getIView()
         viewModel = buildViewModel()
         presenter = buildPresenter()
-        checkNotNull(presenter)
-        presenter!!.attachView(view, viewModel)
+        presenter?.attachView(view, viewModel)
     }
 
     fun setTypeface(typeface: String, textView: TextView) {
@@ -37,12 +36,10 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
 
     override fun onDestroy() {
         super.onDestroy()
-        checkNotNull(presenter)
-        presenter!!.detachView()
+        presenter?.detachView()
     }
 
     fun getViewModel() = {
-        checkNotNull(viewModel)
         viewModel
     }
 }

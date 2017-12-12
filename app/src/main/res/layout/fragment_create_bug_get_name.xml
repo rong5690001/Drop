@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.rong.drop.businesss.activity.fragment.CreateBugGetNameFragment">
+    tools:context="com.rong.drop.businesss.activity.fragment.CreateBudGetNameFragment">
 
     <TextView
         android:id="@+id/textView2"

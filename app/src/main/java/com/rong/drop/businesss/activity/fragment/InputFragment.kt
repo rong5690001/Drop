@@ -1,11 +1,11 @@
 package com.rong.drop.businesss.activity.fragment
 
-
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.rong.drop.R
+import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleFragment
-import kotlinx.android.synthetic.main.fragment_choose_money_type.*
+import kotlinx.android.synthetic.main.fragment_input.*
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +40,7 @@ class InputFragment : SimpleFragment() {
         pageType = arguments.getInt(KEY_PAGE_TYPE)
         if (pageType == PAGE_TYPE_AMOUNT) {
             title.text = "BUDGET AMOUNT"
+            (activity as BudGetCreateActivity).viewModel.accountBudget = Integer.parseInt(editText.text.toString())
         } else {
             title.text = "AMOUNT LEFT"
         }

@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".businesss.activity.BugGetCreateActivity"
+            android:name=".businesss.activity.BudGetCreateActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity

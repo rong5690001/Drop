@@ -16,9 +16,9 @@ import com.rong.drop.utils.TextUtils
  */
 abstract class BaseFragment<P : BasePresenter<V, VM>, V : BaseView, VM : BaseViewModel> : Fragment() {
 
-    var presenter: P? = null
-    lateinit var view: V
-    lateinit var viewModel: VM
+    var mPresenter: P? = null
+    lateinit var mView: V
+    lateinit var mViewModel: VM
     abstract val layoutId: Int
     abstract fun initView(savedInstanceState: Bundle?)
     abstract fun buildPresenter(): P
@@ -33,31 +33,31 @@ abstract class BaseFragment<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
         } else {
             view = LayoutInflater.from(context).inflate(R.layout.fragment_base, container, false)
         }
+
+        mView = getIView()
+        mViewModel = buildViewModel()
+        mPresenter = buildPresenter()
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView(savedInstanceState)
-        view = getIView()
-        viewModel = buildViewModel()
-        presenter = buildPresenter()
-
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        checkNotNull(presenter) {
-            "presenter can't null, should build it first!"
-        }
-        presenter!!.attachView(view, viewModel)
+//        checkNotNull(mPresenter) {
+//            "mPresenter can't null, should build it first!"
+//        }
+        mPresenter?.attachView(mView, mViewModel)
     }
 
     override fun onDetach() {
-        checkNotNull(presenter) {
-            "presenter can't null, should build it first!"
-        }
-        presenter!!.detachView()
+//        checkNotNull(mPresenter) {
+//            "mPresenter can't null, should build it first!"
+//        }
+        mPresenter?.detachView()
         super.onDetach()
     }
 

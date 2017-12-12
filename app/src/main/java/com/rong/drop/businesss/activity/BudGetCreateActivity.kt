@@ -9,26 +9,26 @@ import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.businesss.view.DefaultView
 import com.rong.drop.framework.simple.SimpleFragment
-import com.rong.drop.presenter.BugGetCreatePresenter
+import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.TextUtils
-import com.rong.drop.viewmodel.BugGetCreateViewModel
+import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
-class BugGetCreateActivity : BaseActivity<BugGetCreatePresenter, DefaultView<BugGetCreateViewModel>, BugGetCreateViewModel>()
-        , View.OnClickListener, DefaultView<BugGetCreateViewModel> {
+class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>()
+        , View.OnClickListener, DefaultView<BudGetCreateViewModel> {
 
 
-    override fun getIView(): DefaultView<BugGetCreateViewModel> {
+    override fun getIView(): DefaultView<BudGetCreateViewModel> {
         return this
     }
 
-    override fun buildPresenter(): BugGetCreatePresenter {
-        return BugGetCreatePresenter()
+    override fun buildPresenter(): BudGetCreatePresenter {
+        return BudGetCreatePresenter()
     }
 
-    override fun buildViewModel(): BugGetCreateViewModel {
-        return BugGetCreateViewModel()
+    override fun buildViewModel(): BudGetCreateViewModel {
+        return BudGetCreateViewModel()
     }
 
     private val mFragments = arrayOfNulls<SimpleFragment>(7)
@@ -44,7 +44,7 @@ class BugGetCreateActivity : BaseActivity<BugGetCreatePresenter, DefaultView<Bug
         next()
     }
 
-    override fun onSuccess(viewModel: BugGetCreateViewModel) {
+    override fun onSuccess(viewModel: BudGetCreateViewModel) {
 
     }
 
@@ -90,7 +90,7 @@ class BugGetCreateActivity : BaseActivity<BugGetCreatePresenter, DefaultView<Bug
                 fragment = SetUpCompleteFragment.newFragment()
             }
             else -> {
-                fragment = CreateBugGetNameFragment.newInstance()
+                fragment = CreateBudGetNameFragment.newInstance()
             }
         }
         mFragments[mCurrentIndex] = fragment
