@@ -56,7 +56,7 @@ class ChooseFragment : SimpleFragment() {
             hint.text = getString(R.string.start_date_hint)
             mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.moneySymbolMapper())
             mAdapter?.setOnItemClickListener { itemView, _, position ->
-                (activity as BudGetCreateActivity).viewModel.moneySymbol = mAdapter?.getItem(position)?.code as Int
+                (activity as BudGetCreateActivity).viewModel.moneySymbol = (mAdapter?.getItem(position)?.code as? Int)!!
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
             }
@@ -67,7 +67,7 @@ class ChooseFragment : SimpleFragment() {
             mAdapter?.setOnItemClickListener { itemView, _, position ->
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
-                (activity as BudGetCreateActivity).viewModel.account_cycle = itemView.simpleValue.text.toString() as Int
+                (activity as BudGetCreateActivity).viewModel.account_cycle = (itemView.simpleValue.text.toString() as? Int)!!
             }
         }
         val linearLayoutManager = LinearLayoutManager(context)
