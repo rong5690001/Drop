@@ -12,5 +12,7 @@
     <string name="start_date_hint">Select the day when your monthly  budget starts</string>
     <string name="which_day">%1$dday</string>
     <string name="today">today</string>
+    <string name="rollover_option">ROLLOVER OPTION</string>
+    <string name="rollover_option_hint">This option allows you to rollover your  under or over spent money into the  next budget</string>
 
 </resources>

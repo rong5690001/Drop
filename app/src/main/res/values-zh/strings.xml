@@ -13,4 +13,6 @@
     <string name="start_date_hint">您希望您的预算从几号开始?</string>
     <string name="which_day">第%1$d天</string>
     <string name="today">今天</string>
+    <string name="rollover_option">滚存</string>
+    <string name="rollover_option_hint">您是否希望将超出或多出的预算滚存至下一个预算时间?</string>
 </resources>
