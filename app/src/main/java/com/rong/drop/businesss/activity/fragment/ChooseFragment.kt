@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import com.rong.drop.R
+import com.rong.drop.bean.DictBean
 import com.rong.drop.businesss.activity.BudGetCreateActivity
-import com.rong.drop.businesss.adapter.SimpleRecyclerAdapter
+import com.rong.drop.framework.simple.SimpleRecyclerAdapter
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
-import kotlinx.android.synthetic.main.fragment_choose_money_type.*
+import com.rong.drop.viewmodel.SimpleItemMapper
+import kotlinx.android.synthetic.main.fragment_choose.*
 import kotlinx.android.synthetic.main.item_simple_recycler.view.*
 
 /**
@@ -18,9 +20,9 @@ import kotlinx.android.synthetic.main.item_simple_recycler.view.*
  */
 class ChooseFragment : SimpleFragment() {
 
-    override val layoutId: Int = R.layout.fragment_choose_money_type
+    override val layoutId: Int = R.layout.fragment_choose
 
-    private val moneyTypes = arrayOf("￥CNY", "\$USD", "\$HKD", "\$NHD")
+    lateinit var moneyTypes: Array<DictBean>
     private val startDays = arrayOf("Today", "First day", "Last day", "2nd")
     private var mAdapter: SimpleRecyclerAdapter? = null
     private var mPageType: Int = PAGE_TYPE_MONEY
@@ -53,16 +55,18 @@ class ChooseFragment : SimpleFragment() {
         setTypeface(TextUtils.MONTSERRAT_BOLD, title)
         setTypeface(TextUtils.OPENSANS_REGULAR, hint)
         if (mPageType == PAGE_TYPE_MONEY) {
-            title.text = "币种"
-            mAdapter = SimpleRecyclerAdapter(context, moneyTypes)
+            title.text = getString(R.string.currency)
+            hint.text = getString(R.string.start_date_hint)
+            mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.moneySymbolMapper())
             mAdapter?.setOnItemClickListener { itemView, _, position ->
                 (activity as BudGetCreateActivity).viewModel.typeName = itemView.simpleValue.text.toString()
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
             }
         } else {
-            title.text = "START DATE"
-            mAdapter = SimpleRecyclerAdapter(context, startDays)
+            title.text = getString(R.string.start_date)
+            hint.text = getString(R.string.start_date_hint)
+            mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.startDateMapper())
             mAdapter?.setOnItemClickListener { itemView, _, position ->
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()

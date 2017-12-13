@@ -35,7 +35,7 @@
         android:layout_marginBottom="90dp"
         android:alpha="0.5"
         android:gravity="center"
-        android:text="Select the day when your monthly\n budget starts"
+        android:text="@string/start_date_hint"
         android:textColor="@color/gray_546E7A"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

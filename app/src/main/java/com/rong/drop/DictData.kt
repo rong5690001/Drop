@@ -1,6 +1,6 @@
 package com.rong.drop
 
-import com.rong.drop.bean.AddBillBean
+import com.rong.drop.bean.DictBean
 import com.rong.drop.utils.JsonUtils
 
 /**
@@ -8,15 +8,24 @@ import com.rong.drop.utils.JsonUtils
  */
 object DictData {
 
-    lateinit var addBillDicts: Array<AddBillBean> = {
-
-    }
+    lateinit var addBillDicts: Array<DictBean>
+    val moneySymbolDicts: Array<DictBean>
+        get() = JsonUtils.parseFile(DropApplication.mCurrentActivity
+                , Array<DictBean>::class.java, R.raw.moneysymbol)
 
     fun getAddBillDicts() = {
         if (addBillDicts == null || addBillDicts.isEmpty()) {
             addBillDicts = JsonUtils.parseFile(DropApplication.mCurrentActivity
-                    , Array<AddBillBean>::class.java, R.raw.addbill)
+                    , Array<DictBean>::class.java, R.raw.addbill)
         }
         addBillDicts
     }
+
+//    fun getMoneySymbolDicts() {
+//        if (moneySymbolDicts == null || moneySymbolDicts.isEmpty()) {
+//            moneySymbolDicts = JsonUtils.parseFile(DropApplication.mCurrentActivity
+//                    , Array<DictBean>::class.java, R.raw.moneysymbol)
+//        }
+//        moneySymbolDicts
+//    }
 }

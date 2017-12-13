@@ -9,7 +9,7 @@ import org.byteam.superadapter.SuperAdapter
  */
 abstract class BaseAdapter<T> :SuperAdapter<T>{
 
-    constructor(context: Context?, items: MutableList<T>?, layoutResId: Int) : super(context, items, layoutResId)
-    constructor(context: Context?, items: MutableList<T>?, mulItemViewType: IMulItemViewType<T>?) : super(context, items, mulItemViewType)
+    constructor(context: Context?, items: List<T>?, layoutResId: Int) : super(context, items, layoutResId)
+    constructor(context: Context?, items: List<T>?, mulItemViewType: IMulItemViewType<T>?) : super(context, items, mulItemViewType)
 
 }
