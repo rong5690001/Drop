@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import com.rong.drop.R
-import com.rong.drop.bean.DictBean
 import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleRecyclerAdapter
 import com.rong.drop.framework.simple.SimpleFragment
@@ -22,8 +21,6 @@ class ChooseFragment : SimpleFragment() {
 
     override val layoutId: Int = R.layout.fragment_choose
 
-    lateinit var moneyTypes: Array<DictBean>
-    private val startDays = arrayOf("Today", "First day", "Last day", "2nd")
     private var mAdapter: SimpleRecyclerAdapter? = null
     private var mPageType: Int = PAGE_TYPE_MONEY
 
@@ -59,7 +56,7 @@ class ChooseFragment : SimpleFragment() {
             hint.text = getString(R.string.start_date_hint)
             mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.moneySymbolMapper())
             mAdapter?.setOnItemClickListener { itemView, _, position ->
-                (activity as BudGetCreateActivity).viewModel.typeName = itemView.simpleValue.text.toString()
+                (activity as BudGetCreateActivity).viewModel.moneySymbol = itemView.simpleValue.text.toString()
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
             }
@@ -70,7 +67,7 @@ class ChooseFragment : SimpleFragment() {
             mAdapter?.setOnItemClickListener { itemView, _, position ->
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
-                //                (activity as BudGetCreateActivity).mViewModel.typeName = itemView.simpleValue.text.toString()
+                (activity as BudGetCreateActivity).viewModel.account_cycle = itemView.simpleValue.text.toString() as Int
             }
         }
         val linearLayoutManager = LinearLayoutManager(context)

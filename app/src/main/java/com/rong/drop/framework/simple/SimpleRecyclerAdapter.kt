@@ -4,7 +4,6 @@ import android.content.Context
 import com.rong.drop.R
 import com.rong.drop.framework.base.BaseAdapter
 import org.byteam.superadapter.SuperViewHolder
-import kotlin.collections.ArrayList
 
 /**
  * Created by chen.huarong on 2017/11/25.

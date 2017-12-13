@@ -12,11 +12,11 @@ public class AccountTypeNode extends RealmObject {
     /**
      * 使用联合约束时 一定要命名uniqueIndexName 约束名称一致 否则为唯一约束
      */
-//    @DatabaseField(columnName = "typeName")
+//    @DatabaseField(columnName = "moneySymbol")
     public String typeName = "";//类别名称
 
     @Ignore
-    public static String TYPENAME = "typeName";
+    public static String TYPENAME = "moneySymbol";
     //    @Deprecated
 //    @DatabaseField(columnName = "i" +"dentifier")
     private String identifier = "";//UUID
@@ -54,7 +54,7 @@ public class AccountTypeNode extends RealmObject {
     @Override
     public String toString() {
         return "AccountTypeNode{" +
-                "typeName='" + typeName + '\'' +
+                "moneySymbol='" + typeName + '\'' +
                 ", identifier='" + identifier + '\'' +
                 ", moneyType=" + moneyType +
                 ", typeIcon=" + typeIcon +

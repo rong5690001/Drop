@@ -7,9 +7,10 @@ import com.rong.drop.framework.base.BaseViewModel
  */
 class BudGetCreateViewModel : BaseViewModel() {
 
-    lateinit var bookName: String
-    lateinit var typeName: String
-    var accountBudget: Int = 0
-    var amountLeft: Int = 0
+    lateinit var bookName: String//账本名
+    lateinit var moneySymbol: String//货币类型
+    var account_cycle: Int = 0//结算日
+    var accountBudget: Int = 0//预算金额
+    var amountLeft: Int = 0//剩余金额
 
 }
