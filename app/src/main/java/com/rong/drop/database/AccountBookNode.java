@@ -64,6 +64,8 @@ public class AccountBookNode extends RealmObject implements Serializable {
     @Ignore
     public static String RB_UPDATE_TIME = "rb_update_time";
 
+    public AccountTypeNode mAccountTypeNode;
+
     /**
      * 排序 更新的时间
      */

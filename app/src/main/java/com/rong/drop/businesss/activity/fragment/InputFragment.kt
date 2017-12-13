@@ -47,9 +47,7 @@ class InputFragment : SimpleFragment() {
                 override fun afterTextChanged(s: Editable?) {
                     var value = editText.text.toString()
                     if (value.isNotEmpty()) {
-                        var accountBudget = value as Int
-                        accountBudget = Math.min(accountBudget, Int.MAX_VALUE)
-                        (activity as BudGetCreateActivity).viewModel.accountBudget = accountBudget
+                        (activity as BudGetCreateActivity).viewModel.accountBudget = value
                     }
                 }
 
@@ -67,9 +65,7 @@ class InputFragment : SimpleFragment() {
                 override fun afterTextChanged(s: Editable?) {
                     var value = editText.text.toString()
                     if (value.isNotEmpty()) {
-                        var amountLeft = value as Int
-                        amountLeft = Math.min(amountLeft, Int.MAX_VALUE)
-                        (activity as BudGetCreateActivity).viewModel.amountLeft = amountLeft
+                        (activity as BudGetCreateActivity).viewModel.amountLeft = value
                     }
                 }
 

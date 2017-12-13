@@ -8,11 +8,14 @@ import com.rong.drop.R
 import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.businesss.view.DefaultView
+import com.rong.drop.database.AccountBookNode
+import com.rong.drop.database.AccountTypeNode
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
 class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>()
@@ -133,6 +136,18 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
     }
 
     private fun done() {
+        var realm = Realm.getDefaultInstance()
+        realm.beginTransaction()
+        var accountBookNode = realm.createObject(AccountBookNode::class.java)
+        accountBookNode.book_name = viewModel.bookName
+        var accountTypeNode = AccountTypeNode()
+        accountTypeNode.moneyType = viewModel.moneySymbol
+        accountBookNode.mAccountTypeNode = accountTypeNode
+        accountBookNode.account_cycle = viewModel.account_cycle
+        accountBookNode.account_budget = viewModel.accountBudget
+        accountBookNode.balance_rolling = viewModel.balanceRolling
+        realm.insert(accountBookNode)
+        realm.close()
         startActivity(Intent(this, MainActivity::class.java))
     }
 }
