@@ -15,4 +15,8 @@
     <string name="today">今天</string>
     <string name="rollover_option">滚存</string>
     <string name="rollover_option_hint">您是否希望将超出或多出的预算滚存至下一个预算时间?</string>
+    <string name="budget_amount">预算金额</string>
+    <string name="amount_left">剩余资金</string>
+    <string name="budget_amount_hint">您想设置多少预算金额?不要担心,您以后可以更改.</string>
+    <string name="amount_left_hint">您的预算还剩多少?如果不确定,预估一下,您以后可以更改.</string>
 </resources>

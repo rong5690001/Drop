@@ -41,12 +41,15 @@ class InputFragment : SimpleFragment() {
     override fun initView(savedInstanceState: Bundle?) {
         pageType = arguments.getInt(KEY_PAGE_TYPE)
         if (pageType == PAGE_TYPE_AMOUNT) {
-            title.text = "BUDGET AMOUNT"
-            editText.addTextChangedListener(object : TextWatcher{
+            title.text = getString(R.string.budget_amount)
+            hint.text = getString(R.string.budget_amount_hint)
+            editText.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
                     var value = editText.text.toString()
                     if (value.isNotEmpty()) {
-                        (activity as BudGetCreateActivity).viewModel.accountBudget = Integer.parseInt(editText.text.toString())
+                        var accountBudget = value as Int
+                        accountBudget = Math.min(accountBudget, Int.MAX_VALUE)
+                        (activity as BudGetCreateActivity).viewModel.accountBudget = accountBudget
                     }
                 }
 
@@ -58,12 +61,15 @@ class InputFragment : SimpleFragment() {
 
             })
         } else {
-            title.text = "AMOUNT LEFT"
-            editText.addTextChangedListener(object : TextWatcher{
+            title.text = getString(R.string.amount_left)
+            hint.text = getString(R.string.amount_left_hint)
+            editText.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
                     var value = editText.text.toString()
                     if (value.isNotEmpty()) {
-                        (activity as BudGetCreateActivity).viewModel.amountLeft = Integer.parseInt(editText.text.toString())
+                        var amountLeft = value as Int
+                        amountLeft = Math.min(amountLeft, Int.MAX_VALUE)
+                        (activity as BudGetCreateActivity).viewModel.amountLeft = amountLeft
                     }
                 }
 

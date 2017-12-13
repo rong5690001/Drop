@@ -14,5 +14,9 @@
     <string name="today">today</string>
     <string name="rollover_option">ROLLOVER OPTION</string>
     <string name="rollover_option_hint">This option allows you to rollover your  under or over spent money into the  next budget</string>
+    <string name="budget_amount">BUDGET AMOUNT</string>
+    <string name="amount_left">AMOUNT LEFT</string>
+    <string name="budget_amount_hint">Add your budget amount</string>
+    <string name="amount_left_hint">How much do you have left in your budget? If not, you can change it later.</string>
 
 </resources>
