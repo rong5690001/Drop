@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.rong.drop.dragger.component.AppComponent;
 import com.rong.drop.dragger.component.DaggerAppComponent;
 import com.rong.drop.dragger.module.AppModule;
@@ -28,6 +30,7 @@ public class DropApplication extends Application {
                 .build();
 
         RealmManager.install(this);
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
     public static Context getContext() {

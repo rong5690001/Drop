@@ -39,6 +39,12 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.9'
     //Realm
     implementation 'com.google.code.gson:gson:2.2.4'
+    //logger
+    compile 'com.orhanobut:logger:2.1.1'
+    //parceler自动生成支持 Parcelable 接口的样板代码
+    compile 'org.parceler:parceler-api:1.1.9'
+    kapt "org.parceler:parceler:1.1.9"
+    annotationProcessor 'org.parceler:parceler:1.1.9'
 }
 repositories {
     mavenCentral()

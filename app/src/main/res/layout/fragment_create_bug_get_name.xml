@@ -36,6 +36,7 @@
         android:textColor="@color/gray_89ADCA"
         android:textCursorDrawable="@drawable/cursor_gray"
         android:textSize="14sp"
+        android:text="@string/my_budget"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hint"/>

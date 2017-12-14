@@ -1,5 +1,9 @@
 package com.rong.drop.database;
 
+import org.parceler.Parcel;
+
+import io.realm.AccountBookNodeRealmProxy;
+import io.realm.AccountNodeRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 
@@ -9,6 +13,9 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account")
+@Parcel(implementations = { AccountNodeRealmProxy.class },
+        value = Parcel.Serialization.BEAN,
+        analyze = { AccountNode.class })
 public class AccountNode extends RealmObject {
 
     /**

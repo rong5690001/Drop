@@ -19,4 +19,8 @@
     <string name="amount_left">剩余资金</string>
     <string name="budget_amount_hint">您想设置多少预算金额?不要担心,您以后可以更改.</string>
     <string name="amount_left_hint">您的预算还剩多少?如果不确定,预估一下,您以后可以更改.</string>
+    <string name="error">错误</string>
+    <string name="budget_name_valid_msg">请输入您的预算命名!</string>
+    <string name="my_budget">我的账本</string>
+    <string name="submit_failed">提交失败</string>
 </resources>

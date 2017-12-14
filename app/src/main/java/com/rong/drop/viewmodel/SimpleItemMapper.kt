@@ -17,7 +17,7 @@ object SimpleItemMapper {
      */
     fun moneySymbolMapper(): List<SimpleItemViewModel> {
         val results = mutableListOf<SimpleItemViewModel>()
-        DictData.moneySymbolDicts.mapTo(results) { SimpleItemViewModel("", it.detail + it.title) }
+        DictData.moneySymbolDicts.mapTo(results) { SimpleItemViewModel("0", it.detail + it.title) }
         return results
     }
 

@@ -18,5 +18,9 @@
     <string name="amount_left">AMOUNT LEFT</string>
     <string name="budget_amount_hint">Add your budget amount</string>
     <string name="amount_left_hint">How much do you have left in your budget? If not, you can change it later.</string>
+    <string name="error">error</string>
+    <string name="budget_name_valid_msg">input budget name, please!</string>
+    <string name="my_budget">my budget</string>
+    <string name="submit_failed">submit failed</string>
 
 </resources>

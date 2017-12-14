@@ -17,8 +17,12 @@ class CreateBudGetNameFragment : SimpleFragment() {
     override fun initView(savedInstanceState: Bundle?) {
         setTypeface(TextUtils.MONTSERRAT_REGULAR, editText)
         setTypeface(TextUtils.OPENSANS_REGULAR, hint)
+        isValid = true
+        validMessage = getString(R.string.budget_name_valid_msg)
+        (activity as BudGetCreateActivity).viewModel.bookName = editText.text.toString()
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
+                isValid = !p0.toString().isEmpty()
                 (activity as BudGetCreateActivity).viewModel.bookName = p0.toString()
             }
 

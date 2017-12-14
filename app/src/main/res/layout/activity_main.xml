@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/totalCapital"
+        android:id="@+id/accountBudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" $9680.00"
@@ -76,9 +76,9 @@
         android:text="Left this month"
         android:textColor="@color/gray_546E7A"
         android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/totalCapital"
-        app:layout_constraintStart_toStartOf="@+id/totalCapital"
-        app:layout_constraintTop_toBottomOf="@+id/totalCapital" />
+        app:layout_constraintEnd_toEndOf="@+id/accountBudget"
+        app:layout_constraintStart_toStartOf="@+id/accountBudget"
+        app:layout_constraintTop_toBottomOf="@+id/accountBudget" />
 
     <ProgressBar
         android:id="@+id/progressBar2"

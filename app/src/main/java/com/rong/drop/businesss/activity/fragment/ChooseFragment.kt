@@ -55,8 +55,8 @@ class ChooseFragment : SimpleFragment() {
             title.text = getString(R.string.currency)
             hint.text = getString(R.string.start_date_hint)
             mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.moneySymbolMapper())
-            mAdapter?.setOnItemClickListener { itemView, _, position ->
-                (activity as BudGetCreateActivity).viewModel.moneySymbol = (mAdapter?.getItem(position)?.code as? Int)!!
+            mAdapter?.setOnItemClickListener { _, _, position ->
+                (activity as BudGetCreateActivity).viewModel.moneySymbol = (mAdapter?.getItem(position)?.code as? Int) ?: 0
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
             }

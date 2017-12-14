@@ -12,6 +12,8 @@ import com.rong.drop.viewmodel.FaildViewModel
  */
 abstract class SimpleFragment : BaseFragment<DefaultPresenter, DefaultView<DefaultViewModel>, DefaultViewModel>(), DefaultView<DefaultViewModel> {
 
+    var isValid = true//是否有效的（可用于校验可否进行下一下操作等）
+    lateinit var validMessage: String
     override val layoutId: Int = R.layout.fragment_base
 
     override fun onSuccess(viewModel: DefaultViewModel) {
@@ -30,6 +32,7 @@ abstract class SimpleFragment : BaseFragment<DefaultPresenter, DefaultView<Defau
     }
 
     override fun buildViewModel(): DefaultViewModel {
+        validMessage = getString(R.string.error)
         return DefaultViewModel()
     }
 }

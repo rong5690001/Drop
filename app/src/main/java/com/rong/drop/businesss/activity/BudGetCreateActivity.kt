@@ -2,7 +2,10 @@ package com.rong.drop.businesss.activity
 
 import android.content.Intent
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.View
+import com.getkeepsafe.relinker.ReLinker
+import com.orhanobut.logger.Logger
 import com.rong.drop.MainActivity
 import com.rong.drop.R
 import com.rong.drop.framework.base.BaseActivity
@@ -13,6 +16,7 @@ import com.rong.drop.database.AccountTypeNode
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.utils.ToastUtil
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
 import io.realm.Realm
@@ -70,6 +74,10 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
     }
 
     private fun next() {
+        if (mCurrentIndex > -1 && mFragments[mCurrentIndex]?.isValid == false) {
+            ToastUtil.makeToast(mFragments[mCurrentIndex]?.validMessage ?: getString(R.string.error))
+            return
+        }
         var fragment: SimpleFragment
         //取值
         mCurrentIndex = Math.min(++mCurrentIndex, 6)
@@ -137,17 +145,20 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
 
     private fun done() {
         var realm = Realm.getDefaultInstance()
-        realm.beginTransaction()
-        var accountBookNode = realm.createObject(AccountBookNode::class.java)
-        accountBookNode.book_name = viewModel.bookName
-        var accountTypeNode = AccountTypeNode()
-        accountTypeNode.moneyType = viewModel.moneySymbol
-        accountBookNode.mAccountTypeNode = accountTypeNode
-        accountBookNode.account_cycle = viewModel.account_cycle
-        accountBookNode.account_budget = viewModel.accountBudget
-        accountBookNode.balance_rolling = viewModel.balanceRolling
-        realm.insert(accountBookNode)
+//        realm.beginTransaction()
+        realm.executeTransaction(Realm.Transaction {
+            var accountBookNode = realm.createObject(AccountBookNode::class.java)
+            accountBookNode.book_name = viewModel.bookName
+            var accountTypeNode = realm.createObject(AccountTypeNode::class.java)
+            accountTypeNode.moneyType = viewModel.moneySymbol
+            accountBookNode.mAccountTypeNode = accountTypeNode
+            accountBookNode.account_cycle = viewModel.account_cycle
+            accountBookNode.account_budget = viewModel.accountBudget
+            accountBookNode.balance_rolling = viewModel.balanceRolling
+            startActivity(Intent(this, MainActivity::class.java))
+        })
         realm.close()
-        startActivity(Intent(this, MainActivity::class.java))
+//        realm.addChangeListener {  }
+//        realm.commitTransaction()
     }
 }

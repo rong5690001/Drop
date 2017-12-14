@@ -1,7 +1,8 @@
 package com.rong.drop.database;
 
 
-import java.io.Serializable;
+import org.parceler.Parcel;
+import io.realm.AccountBookNodeRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 
@@ -11,7 +12,10 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account_book")
-public class AccountBookNode extends RealmObject implements Serializable {
+@Parcel(implementations = {AccountBookNodeRealmProxy.class},
+        value = Parcel.Serialization.BEAN,
+        analyze = {AccountBookNode.class})
+public class AccountBookNode extends RealmObject {
     /**
      * 账本名称
      */
