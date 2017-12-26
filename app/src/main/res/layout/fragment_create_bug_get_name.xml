@@ -33,7 +33,7 @@
         android:gravity="center"
         android:hint="@string/enter_name"
         android:inputType="textPersonName"
-        android:textColor="@color/gray_89ADCA"
+        android:textColor="@color/blue_89ADCA"
         android:textCursorDrawable="@drawable/cursor_gray"
         android:textSize="14sp"
         android:text="@string/my_budget"

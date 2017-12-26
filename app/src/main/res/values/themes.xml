@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blue_89ADCA</item>
+        <item name="colorPrimaryDark">@color/blue_89ADCA</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--全屏-->
+    <style name="FullScreenTheme" parent="AppTheme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--没有头部-->
+    <style name="NoTitleTheme" parent="AppTheme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!--闪屏页面-->
+    <style name="SplashTheme" parent="FullScreenTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--透明背景-->
+    <style name="translationTheme" parent="NoTitleTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AnimationUpOpenTheme" parent="FullScreenTheme">
+        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/up_open_open_enter</item>
+        <item name="android:wallpaperIntraOpenExitAnimation">@anim/up_open_open_exit</item>
+    </style>
+</resources>

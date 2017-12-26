@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rong.drop.viewmodel.MyBudgetsViewModel"/>
+
+        <variable
+            name="onclickListener"
+            type="android.view.View.OnClickListener"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_89ADCA"
+        tools:context="com.rong.drop.businesss.activity.MyBudgetsActivity">
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="monospace"
+            android:text="@{viewModel.moneySymbol + String.valueOf(viewModel.money)}"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            tools:text="$9000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{viewModel.title}"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            tools:text="收入"
+            app:layout_constraintBottom_toTopOf="@+id/money"
+            app:layout_constraintEnd_toEndOf="@+id/money"
+            app:layout_constraintStart_toStartOf="@+id/money" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

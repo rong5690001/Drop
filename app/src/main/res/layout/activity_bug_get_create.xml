@@ -24,7 +24,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@color/gray_89ADCA">
+            android:background="@color/blue_89ADCA">
 
             <Button
                 android:id="@+id/bottomBtn"

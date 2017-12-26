@@ -6,9 +6,6 @@ import android.content.Context;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.rong.drop.dragger.component.AppComponent;
-import com.rong.drop.dragger.component.DaggerAppComponent;
-import com.rong.drop.dragger.module.AppModule;
 import com.rong.drop.framework.database.RealmManager;
 
 /**
@@ -18,16 +15,12 @@ import com.rong.drop.framework.database.RealmManager;
 public class DropApplication extends Application {
 
     private static Context context;
-    private AppComponent mAppComponent;
     public static Activity mCurrentActivity;
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = this;
-        mAppComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .build();
 
         RealmManager.install(this);
         Logger.addLogAdapter(new AndroidLogAdapter());

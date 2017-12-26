@@ -1,11 +1,5 @@
 package com.rong.drop.database;
 
-import org.parceler.Parcel;
-
-import java.io.Serializable;
-
-import io.realm.AccountBookNodeRealmProxy;
-import io.realm.AccountTypeNodeRealmProxy;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 
@@ -14,9 +8,9 @@ import io.realm.annotations.Ignore;
  */
 
 //@DatabaseTable(tableName = "account_type")
-@Parcel(implementations = {AccountTypeNodeRealmProxy.class},
-        value = Parcel.Serialization.BEAN,
-        analyze = {AccountTypeNode.class})
+//@Parcel(implementations = {AccountTypeNodeRealmProxy.class},
+//        value = Parcel.Serialization.BEAN,
+//        analyze = {AccountTypeNode.class})
 public class AccountTypeNode extends RealmObject {
     /**
      * 使用联合约束时 一定要命名uniqueIndexName 约束名称一致 否则为唯一约束
