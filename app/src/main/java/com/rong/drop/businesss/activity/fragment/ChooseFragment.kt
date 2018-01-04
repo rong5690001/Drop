@@ -10,7 +10,6 @@ import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.viewmodel.SimpleItemMapper
 import kotlinx.android.synthetic.main.fragment_choose.*
-import kotlinx.android.synthetic.main.item_simple_recycler.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -31,15 +30,15 @@ class ChooseFragment : SimpleFragment() {
         private val KEY_PAGE_TYPE = "mPageType"
 
         fun newChooseMoneyTypeFragment(): ChooseFragment {
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putInt(KEY_PAGE_TYPE, PAGE_TYPE_MONEY)
-            var fragment = ChooseFragment()
+            val fragment = ChooseFragment()
             fragment.arguments = bundle
             return fragment
         }
 
         fun newChooseStartDay(): ChooseFragment {
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putInt(KEY_PAGE_TYPE, PAGE_TYPE_STARTDAY)
             var fragment = ChooseFragment()
             fragment.arguments = bundle
@@ -56,7 +55,7 @@ class ChooseFragment : SimpleFragment() {
             hint.text = getString(R.string.start_date_hint)
             mAdapter = SimpleRecyclerAdapter(context, SimpleItemMapper.moneySymbolMapper())
             mAdapter?.setOnItemClickListener { _, _, position ->
-                (activity as BudGetCreateActivity).viewModel.moneySymbol = (mAdapter?.getItem(position)?.code as? Int) ?: 0
+                (activity as BudGetCreateActivity).viewModel.moneySymbol = (mAdapter?.getItem(position)?.value) ?: "\$USD"
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
             }
@@ -67,7 +66,7 @@ class ChooseFragment : SimpleFragment() {
             mAdapter?.setOnItemClickListener { itemView, _, position ->
                 mAdapter?.selectedIndex = position
                 mAdapter?.notifyDataSetChanged()
-                (activity as BudGetCreateActivity).viewModel.account_cycle = (itemView.simpleValue.text.toString() as? Int)!!
+                (activity as BudGetCreateActivity).viewModel.account_cycle = position
             }
         }
         val linearLayoutManager = LinearLayoutManager(context)

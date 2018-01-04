@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.rong.drop.businesss.activity.BudGetCreateActivity;
+import com.rong.drop.utils.PreferencesUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -17,7 +18,11 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, BudGetCreateActivity.class));
+                if (PreferencesUtils.INSTANCE.getBoolean(PreferencesUtils.INSTANCE.getKEY_HAS_BUDGET(), false)) {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, BudGetCreateActivity.class));
+                }
                 finish();
             }
         }, 1500);

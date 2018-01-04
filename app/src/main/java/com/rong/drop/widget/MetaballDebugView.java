@@ -197,6 +197,7 @@ public class MetaballDebugView extends View {
                 || d <= Math.abs(radius1 - radius2)) {
             if (mMetaballListener != null && d == 0 && !isIncome && operationValid) {//完成回调
                 mMetaballListener.onExpend();
+                operationValid = false;
             }
             return;
         } else if (d < radius1 + radius2) {

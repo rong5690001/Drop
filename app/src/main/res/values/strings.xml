@@ -22,5 +22,7 @@
     <string name="budget_name_valid_msg">input budget name, please!</string>
     <string name="my_budget">my budget</string>
     <string name="submit_failed">submit failed</string>
+    <string name="income">income</string>
+    <string name="expend">expend</string>
 
 </resources>

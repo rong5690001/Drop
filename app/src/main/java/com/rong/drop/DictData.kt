@@ -14,12 +14,4 @@ object DictData {
     val moneySymbolDicts: Array<DictBean>
         get() = JsonUtils.parseFile(DropApplication.mCurrentActivity
                 , Array<DictBean>::class.java, R.raw.moneysymbol)
-
-//    fun getMoneySymbolDicts() {
-//        if (moneySymbolDicts == null || moneySymbolDicts.isEmpty()) {
-//            moneySymbolDicts = JsonUtils.parseFile(DropApplication.mCurrentActivity
-//                    , Array<DictBean>::class.java, R.raw.moneysymbol)
-//        }
-//        moneySymbolDicts
-//    }
 }

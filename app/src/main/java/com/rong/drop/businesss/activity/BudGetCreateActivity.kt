@@ -15,6 +15,7 @@ import com.rong.drop.database.AccountBookNode
 import com.rong.drop.database.AccountTypeNode
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.presenter.BudGetCreatePresenter
+import com.rong.drop.utils.PreferencesUtils
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
 import com.rong.drop.viewmodel.BudGetCreateViewModel
@@ -146,18 +147,18 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
     private fun done() {
         var realm = Realm.getDefaultInstance()
 //        realm.beginTransaction()
-        realm.executeTransaction(Realm.Transaction {
+        realm.executeTransaction({
             var accountBookNode = realm.createObject(AccountBookNode::class.java)
             accountBookNode.book_name = viewModel.bookName
             var accountTypeNode = realm.createObject(AccountTypeNode::class.java)
-            accountTypeNode.moneyType = viewModel.moneySymbol
+            accountTypeNode.typeName = viewModel.moneySymbol
             accountBookNode.mAccountTypeNode = accountTypeNode
             accountBookNode.account_cycle = viewModel.account_cycle
             accountBookNode.account_budget = viewModel.accountBudget
             accountBookNode.balance_rolling = viewModel.balanceRolling
             startActivity(Intent(this, MainActivity::class.java))
         })
-        realm.close()
+        PreferencesUtils.putValue(PreferencesUtils.KEY_HAS_BUDGET, true)
 //        realm.addChangeListener {  }
 //        realm.commitTransaction()
     }

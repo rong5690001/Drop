@@ -27,8 +27,6 @@ class MainActivity : BaseBindingActivity<DefaultView<MainViewModel>, MainViewMod
         get() = R.layout.activity_main
 
     override fun initView() {
-        binding.viewModel = buildViewModel()
-        binding.onclickListener = this
         SystemBarUtil.immersiveStatusBar(this, 0f)
         setTypeface(TextUtils.MONTSERRAT_BOLD, mainTitle)
         setTypeface(TextUtils.SPOON_BOLD, accountBudget)
@@ -37,7 +35,8 @@ class MainActivity : BaseBindingActivity<DefaultView<MainViewModel>, MainViewMod
     }
 
     override fun buildViewModel(): MainViewModel {
-        var mainViewModel = MainViewModel()
+        val mainViewModel = MainViewModel()
+        mainViewModel.getData()
         return mainViewModel
     }
 
@@ -60,15 +59,15 @@ class MainActivity : BaseBindingActivity<DefaultView<MainViewModel>, MainViewMod
         startActivityForResult(Intent(this
                 , MyBudgetsActivity::class.java)
                 .putExtra(MyBudgetsActivity.KEY_PAGE_TYPE, MyBudgetsActivity.PAGE_TYPE_EXPEND)
-                , REQUEST_CODE_INCOME)
+                , REQUEST_CODE_EXPEND)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
-                REQUEST_CODE_INCOME -> {
-//                    viewModel.getData()
+                REQUEST_CODE_INCOME, REQUEST_CODE_EXPEND -> {
+                    viewModel.getData()
                 }
             }
         }

@@ -2,6 +2,7 @@ package com.rong.drop.businesss.activity
 
 import android.support.v4.content.ContextCompat
 import com.rong.drop.R
+import com.rong.drop.`object`.BudgetObject
 import com.rong.drop.businesss.view.DefaultView
 import com.rong.drop.databinding.ActivityMyBudgetsBinding
 import com.rong.drop.framework.base.BaseBindingActivity
@@ -15,8 +16,8 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
         , DefaultView<MyBudgetsViewModel> {
 
     companion object {
-        val PAGE_TYPE_INCOME = 0;
-        val PAGE_TYPE_EXPEND = 1;
+        val PAGE_TYPE_INCOME = 0
+        val PAGE_TYPE_EXPEND = 1
 
         val KEY_PAGE_TYPE = "pageType"
     }
@@ -27,21 +28,25 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
 
     private var pageType = PAGE_TYPE_INCOME
 
-    override fun initView() {
-        pageType = intent.getIntExtra(KEY_PAGE_TYPE, PAGE_TYPE_INCOME)
-        if (pageType == PAGE_TYPE_INCOME) {//收入
-            contentLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_89ADCA))
-
-        } else {
-            contentLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_89ADCA))
-        }
-        setTypeface(TextUtils.SPOON_BOLD, money)
+    override fun buildViewModel(): MyBudgetsViewModel {
+        return MyBudgetsViewModel()
     }
 
-    override fun buildViewModel(): MyBudgetsViewModel {
-        var viewModel = MyBudgetsViewModel()
-        viewModel.title =
-                return MyBudgetsViewModel()
+    override fun initValue() {
+        super.initValue()
+        pageType = intent.getIntExtra(KEY_PAGE_TYPE, PAGE_TYPE_INCOME)
+    }
+
+    override fun initView() {
+        if (pageType == PAGE_TYPE_INCOME) {//收入
+            viewModel.title.set(getString(R.string.income))
+            contentLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_89ADCA))
+        } else {//支出
+            viewModel.title.set(getString(R.string.expend))
+            contentLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_89ADCA))
+        }
+        viewModel.moneySymbol.set(BudgetObject.moneySymbol)
+        setTypeface(TextUtils.SPOON_BOLD, money)
     }
 
     override fun getIView(): DefaultView<MyBudgetsViewModel> {

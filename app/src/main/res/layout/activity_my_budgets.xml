@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -21,7 +21,7 @@
         android:background="@color/blue_89ADCA"
         tools:context="com.rong.drop.businesss.activity.MyBudgetsActivity">
 
-        <TextView
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,15 +29,15 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="monospace"
-            android:text="@{viewModel.moneySymbol + String.valueOf(viewModel.money)}"
+            android:background="@null"
+            android:text="@{viewModel.moneySymbol + viewModel.money}"
             android:textColor="@color/white"
             android:textSize="36sp"
-            tools:text="$9000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="$9000"/>
 
         <TextView
             android:id="@+id/title"
@@ -49,9 +49,9 @@
             android:text="@{viewModel.title}"
             android:textColor="@color/white"
             android:textSize="24sp"
-            tools:text="收入"
             app:layout_constraintBottom_toTopOf="@+id/money"
-            app:layout_constraintEnd_toEndOf="@+id/money"
-            app:layout_constraintStart_toStartOf="@+id/money" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="收入"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

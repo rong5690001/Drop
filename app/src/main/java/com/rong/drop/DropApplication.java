@@ -23,7 +23,13 @@ public class DropApplication extends Application {
         context = this;
 
         RealmManager.install(this);
-        Logger.addLogAdapter(new AndroidLogAdapter());
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
+
     }
 
     public static Context getContext() {

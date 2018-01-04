@@ -23,4 +23,6 @@
     <string name="budget_name_valid_msg">请输入您的预算命名!</string>
     <string name="my_budget">我的账本</string>
     <string name="submit_failed">提交失败</string>
+    <string name="income">收入</string>
+    <string name="expend">支出</string>
 </resources>

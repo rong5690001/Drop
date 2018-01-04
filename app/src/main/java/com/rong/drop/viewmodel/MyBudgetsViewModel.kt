@@ -1,6 +1,8 @@
 package com.rong.drop.viewmodel
 
+import android.databinding.ObservableField
 import android.databinding.ObservableFloat
+import com.rong.drop.R
 import com.rong.drop.framework.base.BaseViewModel
 
 /**
@@ -8,7 +10,7 @@ import com.rong.drop.framework.base.BaseViewModel
  */
 class MyBudgetsViewModel : BaseViewModel() {
 
-    lateinit var title: String
-    lateinit var moneySymbol: String
+    var title = ObservableField<String>(getString(R.string.income))
+    var moneySymbol = ObservableField<String>("¥")
     var money = ObservableFloat()
 }

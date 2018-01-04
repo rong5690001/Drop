@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import com.rong.drop.BR
 import com.rong.drop.DropApplication
 import com.rong.drop.utils.TextUtils
 
@@ -29,8 +30,8 @@ abstract class BaseBindingActivity<V : BaseView, VM : BaseViewModel, Binding : V
         initValue()
         view = getIView()
         viewModel = buildViewModel()
-//        binding.setVariable(BR.viewModel, viewModel)
-//        binding.setVariable(BR.onclickListener, this)
+        binding.setVariable(BR.viewModel, viewModel)
+        binding.setVariable(BR.onclickListener, this)
         initView()
     }
 
