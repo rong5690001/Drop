@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <EditText
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,12 +31,9 @@
         android:background="@drawable/bg_rectangle_gray"
         android:gravity="center"
         android:hint="0.00"
-        android:digits="1234567890."
-        android:inputType="number"
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:textCursorDrawable="@android:color/transparent"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +56,15 @@
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:focusable="true"
+        android:focusableInTouchMode="true"
         android:keyTextColor="@color/white"
-        android:focusableInTouchMode="true"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 </android.support.constraint.ConstraintLayout>

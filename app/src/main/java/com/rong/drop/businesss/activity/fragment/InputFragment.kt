@@ -15,7 +15,15 @@ import kotlinx.android.synthetic.main.fragment_input.*
 /**
  * A simple [Fragment] subclass.
  */
-class InputFragment : SimpleFragment() {
+class InputFragment : SimpleFragment(), View.OnClickListener {
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.text -> {
+                keyboardView.visibility = if (keyboardView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            }
+        }
+    }
 
     override val layoutId: Int = R.layout.fragment_input
     private var pageType: Int = PAGE_TYPE_AMOUNT
@@ -81,21 +89,16 @@ class InputFragment : SimpleFragment() {
             })
         }
 
-        editText.setOnFocusChangeListener { v, hasFocus ->
-            if (hasFocus) {
-                keyboardView.visibility = View.VISIBLE
-            } else {
-                keyboardView.visibility = View.GONE
-            }
-        }
-
         keyboardView.keyboard = Keyboard(context, R.xml.keyboard)
+        keyboardView.visibility = View.VISIBLE
         keyboardView.setOnKeyboardActionListener(object : DropKeyboardActionListener() {
             override fun onKey(primaryCode: Int, keyCodes: IntArray) {
                 super.onKey(primaryCode, keyCodes)
                 editText.append(primaryCode.toString())
             }
         })
+
+        editText.setOnClickListener(this)
     }
 
 }// Required empty public constructor

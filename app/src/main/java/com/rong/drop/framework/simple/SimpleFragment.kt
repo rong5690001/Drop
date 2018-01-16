@@ -10,7 +10,10 @@ import com.rong.drop.viewmodel.FaildViewModel
 /**
  * Created by chen.huarong on 2017/12/12.
  */
-abstract class SimpleFragment : BaseFragment<DefaultPresenter, DefaultView<DefaultViewModel>, DefaultViewModel>(), DefaultView<DefaultViewModel> {
+abstract class SimpleFragment : BaseFragment<DefaultPresenter
+        , DefaultView<DefaultViewModel>
+        , DefaultViewModel>()
+        , DefaultView<DefaultViewModel> {
 
     var isValid = true//是否有效的（可用于校验可否进行下一下操作等）
     lateinit var validMessage: String
