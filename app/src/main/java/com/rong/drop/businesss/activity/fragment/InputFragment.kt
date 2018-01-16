@@ -1,12 +1,15 @@
 package com.rong.drop.businesss.activity.fragment
 
+import android.inputmethodservice.Keyboard
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import com.rong.drop.R
 import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleFragment
+import com.rong.drop.widget.keyboard.DropKeyboardActionListener
 import kotlinx.android.synthetic.main.fragment_input.*
 
 /**
@@ -77,6 +80,22 @@ class InputFragment : SimpleFragment() {
 
             })
         }
+
+        editText.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                keyboardView.visibility = View.VISIBLE
+            } else {
+                keyboardView.visibility = View.GONE
+            }
+        }
+
+        keyboardView.keyboard = Keyboard(context, R.xml.keyboard)
+        keyboardView.setOnKeyboardActionListener(object : DropKeyboardActionListener() {
+            override fun onKey(primaryCode: Int, keyCodes: IntArray) {
+                super.onKey(primaryCode, keyCodes)
+                editText.append(primaryCode.toString())
+            }
+        })
     }
 
 }// Required empty public constructor
