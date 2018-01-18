@@ -2,10 +2,7 @@ package com.rong.drop.businesss.activity
 
 import android.content.Intent
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.View
-import com.getkeepsafe.relinker.ReLinker
-import com.orhanobut.logger.Logger
 import com.rong.drop.MainActivity
 import com.rong.drop.R
 import com.rong.drop.framework.base.BaseActivity

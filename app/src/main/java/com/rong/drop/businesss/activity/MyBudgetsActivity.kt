@@ -1,6 +1,8 @@
 package com.rong.drop.businesss.activity
 
+import android.inputmethodservice.Keyboard
 import android.support.v4.content.ContextCompat
+import android.view.View
 import com.rong.drop.R
 import com.rong.drop.`object`.BudgetObject
 import com.rong.drop.businesss.view.DefaultView
@@ -9,6 +11,7 @@ import com.rong.drop.framework.base.BaseBindingActivity
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MyBudgetsViewModel
+import com.rong.drop.widget.keyboard.DropKeyboardActionListener
 import kotlinx.android.synthetic.main.activity_my_budgets.*
 
 class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
@@ -47,6 +50,15 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
         }
         viewModel.moneySymbol.set(BudgetObject.moneySymbol)
         setTypeface(TextUtils.SPOON_BOLD, money)
+
+        keyboardView.keyboard = Keyboard(this, R.xml.keyboard)
+        keyboardView.isEnabled = true
+        keyboardView.setOnKeyboardActionListener(object : DropKeyboardActionListener() {
+            override fun onKey(primaryCode: Int, keyCodes: IntArray) {
+                super.onKey(primaryCode, keyCodes)
+                viewModel.money.set(viewModel.money.get() * 10f + primaryCode * 0.1f)
+            }
+        })
     }
 
     override fun getIView(): DefaultView<MyBudgetsViewModel> {
@@ -59,5 +71,15 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
 
     override fun onFailed(viewModel: FaildViewModel) {
 
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.money -> {
+                keyboardView.visibility = if (keyboardView.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            }
+            else -> {
+            }
+        }
     }
 }
