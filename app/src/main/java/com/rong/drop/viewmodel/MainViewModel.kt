@@ -27,6 +27,8 @@ class MainViewModel : BaseViewModel() {
         accountBudget.set(moneySymbol + accountBookNode.account_budget)
         BudgetObject.moneySymbol = moneySymbol
         BudgetObject.account_budget = accountBookNode.account_budget
+        BudgetObject.bookId = accountBookNode.bookId
+        BudgetObject.accountTypeId = accountBookNode.mAccountTypeNode.typeId
         mRealm.close()
 
     }

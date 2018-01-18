@@ -2,6 +2,7 @@ package com.rong.drop.database;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * 账本
@@ -13,6 +14,9 @@ import io.realm.annotations.Ignore;
 //        value = Parcel.Serialization.BEAN,
 //        analyze = {AccountBookNode.class})
 public class AccountBookNode extends RealmObject {
+
+    @PrimaryKey
+    public int bookId;
     /**
      * 账本名称
      */

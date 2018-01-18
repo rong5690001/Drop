@@ -24,5 +24,7 @@
     <string name="submit_failed">submit failed</string>
     <string name="income">income</string>
     <string name="expend">expend</string>
+    <string name="delete">delete</string>
+    <string name="finish">finish</string>
 
 </resources>

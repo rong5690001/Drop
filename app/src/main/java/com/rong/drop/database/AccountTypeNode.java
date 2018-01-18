@@ -2,6 +2,7 @@ package com.rong.drop.database;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * 类别表
@@ -12,6 +13,9 @@ import io.realm.annotations.Ignore;
 //        value = Parcel.Serialization.BEAN,
 //        analyze = {AccountTypeNode.class})
 public class AccountTypeNode extends RealmObject {
+
+    @PrimaryKey
+    public int typeId;
     /**
      * 使用联合约束时 一定要命名uniqueIndexName 约束名称一致 否则为唯一约束
      */

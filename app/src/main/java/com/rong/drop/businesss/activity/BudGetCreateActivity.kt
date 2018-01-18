@@ -143,12 +143,12 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
     }
 
     private fun done() {
-        var realm = Realm.getDefaultInstance()
+        val realm = Realm.getDefaultInstance()
 //        realm.beginTransaction()
         realm.executeTransaction({
-            var accountBookNode = realm.createObject(AccountBookNode::class.java)
+            val accountBookNode = realm.createObject(AccountBookNode::class.java)
             accountBookNode.book_name = viewModel.bookName
-            var accountTypeNode = realm.createObject(AccountTypeNode::class.java)
+            val accountTypeNode = realm.createObject(AccountTypeNode::class.java)
             accountTypeNode.typeName = viewModel.moneySymbol
             accountBookNode.mAccountTypeNode = accountTypeNode
             accountBookNode.account_cycle = viewModel.account_cycle

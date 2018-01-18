@@ -2,6 +2,7 @@ package com.rong.drop.database;
 
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * 账单表数据结构
@@ -13,6 +14,9 @@ import io.realm.annotations.Ignore;
 //        value = Parcel.Serialization.BEAN,
 //        analyze = { AccountNode.class })
 public class AccountNode extends RealmObject {
+
+    @PrimaryKey
+    public int nodeId;
 
     /**
      * 收入支出类型
@@ -35,7 +39,7 @@ public class AccountNode extends RealmObject {
      * 记账金额
      */
 //    @DatabaseField(columnName = "money", dataType = DataType.STRING)
-    public String money;
+    public float money;
     @Ignore
     public static final String MONEY = "money";
     /**
@@ -52,7 +56,7 @@ public class AccountNode extends RealmObject {
      */
 //    @DatabaseField(canBeNull = true, foreign = true, columnName = "account_book_id"
 //            , foreignAutoRefresh = true)
-    public String account_book_id;
+    public int account_book_id;
     @Ignore
     public static final String ACCOUNT_BOOK_ID = "account_book_id";
 

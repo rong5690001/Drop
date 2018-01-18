@@ -6,4 +6,6 @@ package com.rong.drop.`object`
 object BudgetObject {
     var moneySymbol = "￥"
     var account_budget = "0.0"
+    var bookId = 0
+    var accountTypeId = 0
 }
