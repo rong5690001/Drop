@@ -8,6 +8,7 @@ import com.rong.drop.databinding.ActivityMainBinding
 import com.rong.drop.framework.base.BaseBindingActivity
 import com.rong.drop.utils.SystemBarUtil
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MainViewModel
 import com.rong.drop.widget.MetaballDebugView
@@ -28,9 +29,9 @@ class MainActivity : BaseBindingActivity<DefaultView<MainViewModel>, MainViewMod
 
     override fun initView() {
         SystemBarUtil.immersiveStatusBar(this, 0f)
-        setTypeface(TextUtils.MONTSERRAT_BOLD, mainTitle)
-        setTypeface(TextUtils.SPOON_BOLD, accountBudget)
-        setTypeface(TextUtils.MONTSERRAT_REGULAR, hint)
+        mainTitle.setTypefaceExtension(TextUtils.MONTSERRAT_BOLD)
+        accountBudget.setTypefaceExtension(TextUtils.SPOON_BOLD)
+        hint.setTypefaceExtension(TextUtils.MONTSERRAT_REGULAR)
         metaballDebugView.setMetaballListener(this)
     }
 

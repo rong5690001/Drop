@@ -38,10 +38,10 @@ abstract class BaseBindingActivity<V : BaseView, VM : BaseViewModel, Binding : V
     open fun initValue() {
 
     }
-
-    fun setTypeface(typeface: String, textView: TextView) {
-        TextUtils.setTypeFace(typeface, textView)
-    }
+//
+//    fun setTypeface(typeface: String, textView: TextView) {
+//        TextUtils.setTypeFace(typeface, textView)
+//    }
 
     override fun onResume() {
         super.onResume()

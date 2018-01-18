@@ -42,4 +42,12 @@
             android:keyLabel="9"/>
     </Row>
 
+    <Row>
+        <Key
+            android:codes="0"
+            android:keyLabel="0"/>
+        <Key
+            android:codes="-1"
+            android:keyLabel="-"/>
+    </Row>
 </Keyboard>

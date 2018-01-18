@@ -31,10 +31,10 @@ abstract class BaseActivity<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
         presenter = buildPresenter()
         presenter?.attachView(view, viewModel)
     }
-
-    fun setTypeface(typeface: String, textView: TextView) {
-        TextUtils.setTypeFace(typeface, textView)
-    }
+//
+//    fun setTypeface(typeface: String, textView: TextView) {
+//        TextUtils.setTypeFace(typeface, textView)
+//    }
 
     override fun onResume() {
         super.onResume()

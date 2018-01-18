@@ -14,13 +14,4 @@ object TextUtils {
     val OPENSANS_REGULAR = "fonts/OpenSans_Regular.ttf"
     val SPOON_BOLD = "fonts/Spoon_Bold.otf"
 
-    fun setTypeFace(typeFace: String, textView: TextView?) {
-        if (textView == null) {
-            throw NullPointerException("textView is null")
-        }
-        if (textView.context == null) {
-            throw NullPointerException("textView.getContext is null")
-        }
-        textView.typeface = Typeface.createFromAsset(textView.context.assets, typeFace)
-    }
 }

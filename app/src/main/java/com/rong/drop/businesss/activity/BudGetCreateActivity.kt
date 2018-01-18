@@ -15,6 +15,7 @@ import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.PreferencesUtils
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
+import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
 import io.realm.Realm
@@ -44,7 +45,7 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
         get() = R.layout.activity_bug_get_create
 
     override fun initView() {
-        setTypeface(TextUtils.MONTSERRAT_BOLD, bottomBtn)
+        bottomBtn.setTypefaceExtension(TextUtils.MONTSERRAT_BOLD)
         System.out.println("int.....")
         next()
     }

@@ -38,10 +38,6 @@ abstract class BaseBindingFragment<V : BaseView, VM : BaseViewModel, Binding : V
 
     }
 
-    fun setTypeface(typeface: String, textView: TextView) {
-        TextUtils.setTypeFace(typeface, textView)
-    }
-
     override fun onResume() {
         super.onResume()
     }

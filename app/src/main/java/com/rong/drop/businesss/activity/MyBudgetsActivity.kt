@@ -9,6 +9,8 @@ import com.rong.drop.businesss.view.DefaultView
 import com.rong.drop.databinding.ActivityMyBudgetsBinding
 import com.rong.drop.framework.base.BaseBindingActivity
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.utils.pinpoint
+import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MyBudgetsViewModel
 import com.rong.drop.widget.keyboard.DropKeyboardActionListener
@@ -49,14 +51,18 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
             contentLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_89ADCA))
         }
         viewModel.moneySymbol.set(BudgetObject.moneySymbol)
-        setTypeface(TextUtils.SPOON_BOLD, money)
-
+        money.setTypefaceExtension(TextUtils.SPOON_BOLD)
         keyboardView.keyboard = Keyboard(this, R.xml.keyboard)
         keyboardView.isEnabled = true
+        keyboardView.isPreviewEnabled = false
         keyboardView.setOnKeyboardActionListener(object : DropKeyboardActionListener() {
             override fun onKey(primaryCode: Int, keyCodes: IntArray) {
                 super.onKey(primaryCode, keyCodes)
-                viewModel.money.set(viewModel.money.get() * 10f + primaryCode * 0.1f)
+                var value = (viewModel.money.get() / 10f).pinpoint(1)
+                if (primaryCode != -1) {
+                    value = (viewModel.money.get() * 10f + primaryCode * 0.1f).pinpoint(1)
+                }
+                viewModel.money.set(Math.max(value, 0.0f))
             }
         })
     }

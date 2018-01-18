@@ -61,8 +61,4 @@ abstract class BaseFragment<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
         super.onDetach()
     }
 
-    fun setTypeface(typeface: String, textView: TextView) {
-        TextUtils.setTypeFace(typeface, textView)
-    }
-
 }

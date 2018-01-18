@@ -7,6 +7,7 @@ import com.rong.drop.R
 import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.utils.setTypefaceExtension
 import kotlinx.android.synthetic.main.fragment_create_bug_get_name.*
 
 class CreateBudGetNameFragment : SimpleFragment() {
@@ -15,8 +16,8 @@ class CreateBudGetNameFragment : SimpleFragment() {
         get() = R.layout.fragment_create_bug_get_name
 
     override fun initView(savedInstanceState: Bundle?) {
-        setTypeface(TextUtils.MONTSERRAT_REGULAR, editText)
-        setTypeface(TextUtils.OPENSANS_REGULAR, hint)
+        editText.setTypefaceExtension(TextUtils.MONTSERRAT_REGULAR)
+        hint.setTypefaceExtension(TextUtils.OPENSANS_REGULAR)
         isValid = true
         validMessage = getString(R.string.budget_name_valid_msg)
         (activity as BudGetCreateActivity).viewModel.bookName = editText.text.toString()

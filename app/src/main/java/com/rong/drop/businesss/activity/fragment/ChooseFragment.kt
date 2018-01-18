@@ -8,6 +8,7 @@ import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleRecyclerAdapter
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
+import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.SimpleItemMapper
 import kotlinx.android.synthetic.main.fragment_choose.*
 
@@ -48,8 +49,8 @@ class ChooseFragment : SimpleFragment() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mPageType = arguments.getInt(KEY_PAGE_TYPE)
-        setTypeface(TextUtils.MONTSERRAT_BOLD, title)
-        setTypeface(TextUtils.OPENSANS_REGULAR, hint)
+        title.setTypefaceExtension(TextUtils.MONTSERRAT_BOLD)
+        hint.setTypefaceExtension(TextUtils.OPENSANS_REGULAR)
         if (mPageType == PAGE_TYPE_MONEY) {
             title.text = getString(R.string.currency)
             hint.text = getString(R.string.start_date_hint)
