@@ -1,13 +1,16 @@
 package com.rong.drop.framework.database;
 
 import android.app.Application;
+import android.text.TextUtils;
 
 import io.realm.DynamicRealm;
+import io.realm.DynamicRealmObject;
 import io.realm.FieldAttribute;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmMigration;
 import io.realm.RealmObject;
+import io.realm.RealmObjectSchema;
 import io.realm.RealmSchema;
 import io.realm.annotations.PrimaryKey;
 
@@ -19,7 +22,7 @@ import io.realm.annotations.PrimaryKey;
 public class RealmManager {
 
     private static final int FIRST_VERSION = 1;
-    private static final int CURRENT_VERSION = 2;
+    private static final int CURRENT_VERSION = 1;
 
     public static void install(Application application) {
         Realm.init(application);
@@ -44,7 +47,6 @@ public class RealmManager {
 
                 // DynamicRealm exposes an editable schema
                 RealmSchema schema = realm.getSchema();
-
 //                 Migrate to version 1: Add a new class
 //                 Example:
 //                 public Person extends RealmObject {
@@ -69,17 +71,21 @@ public class RealmManager {
 //                     private RealmList<Dog> dogs;
 //                     // getters and setters left out for brevity
 //                 }
-                if (oldVersion == 1) {
-                    schema.get("AccountBookNode")
-                            .addField("bookId", int.class, FieldAttribute.PRIMARY_KEY);
-                    schema.get("AccountNode")
-                            .addField("nodeId", int.class, FieldAttribute.PRIMARY_KEY)
-                            .addField("money", float.class)
-                            .addField("account_book_id", int.class);
-                    schema.get("AccountTypeNode")
-                            .addField("typeId", int.class, FieldAttribute.PRIMARY_KEY);
-                    oldVersion++;
-                }
+//                if (oldVersion == 2) {
+//                    schema.get("AccountNode")
+//                            .addField("money_tmp", Float.class)
+//                            .transform(new RealmObjectSchema.Function() {
+//                                @Override
+//                                public void apply(DynamicRealmObject obj) {
+//                                    String oldMoney = obj.getString("money");
+//                                    obj.setFloat("money_tmp"
+//                                            , TextUtils.isEmpty(oldMoney) ? 0.0f : Float.parseFloat(oldMoney));
+//                                }
+//                            })
+//                            .removeField("money")
+//                            .renameField("money_tmp", "money");
+//                    oldVersion++;
+//                }
             }
         };
     }

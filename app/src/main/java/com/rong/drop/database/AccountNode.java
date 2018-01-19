@@ -1,5 +1,7 @@
 package com.rong.drop.database;
 
+import android.support.annotation.Nullable;
+
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import io.realm.annotations.PrimaryKey;
@@ -39,6 +41,7 @@ public class AccountNode extends RealmObject {
      * 记账金额
      */
 //    @DatabaseField(columnName = "money", dataType = DataType.STRING)
+    @Nullable
     public float money;
     @Ignore
     public static final String MONEY = "money";
