@@ -7,5 +7,4 @@ import com.rong.drop.viewmodel.EditViewModel
 /**
  * Created by chen.huarong on 2017/12/12.
  */
-class EditPresenter : BasePresenter<DefaultView<EditViewModel>, EditViewModel>() {
-}
+class EditPresenter : BasePresenter<DefaultView<EditViewModel>, EditViewModel>()

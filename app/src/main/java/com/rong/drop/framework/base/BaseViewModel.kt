@@ -1,6 +1,5 @@
 package com.rong.drop.framework.base
 
-import android.support.annotation.IdRes
 import android.support.annotation.StringRes
 import com.rong.drop.DropApplication
 import java.io.Serializable

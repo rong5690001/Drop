@@ -78,7 +78,7 @@ public class SystemBarUtil {
         }
 
         ViewGroup decorView = (ViewGroup) window.getDecorView();
-        ViewGroup contentView = (ViewGroup) window.getDecorView().findViewById(Window.ID_ANDROID_CONTENT);
+        ViewGroup contentView = window.getDecorView().findViewById(Window.ID_ANDROID_CONTENT);
         View rootView = contentView.getChildAt(0);
         int statusBarHeight = getStatusBarHeight(window.getContext());
         if (rootView != null) {

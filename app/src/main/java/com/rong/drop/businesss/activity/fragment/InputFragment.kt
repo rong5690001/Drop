@@ -50,7 +50,7 @@ class InputFragment : SimpleFragment(), View.OnClickListener {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        pageType = arguments.getInt(KEY_PAGE_TYPE)
+        pageType = arguments!!.getInt(KEY_PAGE_TYPE)
         if (pageType == PAGE_TYPE_AMOUNT) {
             title.text = getString(R.string.budget_amount)
             hint.text = getString(R.string.budget_amount_hint)

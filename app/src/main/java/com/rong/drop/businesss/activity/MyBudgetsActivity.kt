@@ -22,7 +22,7 @@ import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MyBudgetsViewModel
 import com.rong.drop.widget.keyboard.DropKeyboardActionListener
-import io.realm.Realm
+//import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_my_budgets.*
 
 class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
@@ -112,14 +112,14 @@ class MyBudgetsActivity : BaseBindingActivity<DefaultView<MyBudgetsViewModel>
      * 完成
      */
     private fun done() {
-        val realm = Realm.getDefaultInstance()
-        realm.executeTransaction({
-            val accountNode = realm.createObject(AccountNode::class.java)
-            accountNode.account_book_id = BudgetObject.bookId
-            accountNode.account_type_id
-            accountNode.money_type = pageType
-            accountNode.money = viewModel.money.get()
-        })
+//        val realm = Realm.getDefaultInstance()
+//        realm.executeTransaction({
+//            val accountNode = realm.createObject(AccountNode::class.java)
+//            accountNode.account_book_id = BudgetObject.bookId
+//            accountNode.account_type_id
+//            accountNode.money_type = pageType
+//            accountNode.money = viewModel.money.get()
+//        })
         setResult(Activity.RESULT_OK)
         finish()
     }

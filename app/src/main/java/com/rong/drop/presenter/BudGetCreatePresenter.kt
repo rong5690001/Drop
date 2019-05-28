@@ -7,5 +7,4 @@ import com.rong.drop.viewmodel.BudGetCreateViewModel
 /**
  * Created by chen.huarong on 2017/12/12.
  */
-class BudGetCreatePresenter : BasePresenter<DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>() {
-}
+class BudGetCreatePresenter : BasePresenter<DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>()

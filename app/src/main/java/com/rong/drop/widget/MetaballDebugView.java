@@ -301,7 +301,7 @@ public class MetaballDebugView extends View {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                isIncome = d < circle1.radius ? false : true;
+                isIncome = !(d < circle1.radius);
                 operationValid = true;
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -309,9 +309,9 @@ public class MetaballDebugView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 if (isIncome) {
-                    operationValid = d < maxDistance ? true : false;
+                    operationValid = d < maxDistance;
                 } else {
-                    operationValid = d < maxDistance ? false : true;
+                    operationValid = !(d < maxDistance);
                 }
                 if (d < maxDistance) {
                     startAnimation();

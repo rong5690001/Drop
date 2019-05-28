@@ -18,7 +18,7 @@ import com.rong.drop.utils.ToastUtil
 import com.rong.drop.utils.setTypefaceExtension
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
-import io.realm.Realm
+//import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
 class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>()
@@ -143,19 +143,19 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
     }
 
     private fun done() {
-        val realm = Realm.getDefaultInstance()
-//        realm.beginTransaction()
-        realm.executeTransaction({
-            val accountBookNode = realm.createObject(AccountBookNode::class.java)
-            accountBookNode.book_name = viewModel.bookName
-            val accountTypeNode = realm.createObject(AccountTypeNode::class.java)
-            accountTypeNode.typeName = viewModel.moneySymbol
-            accountBookNode.mAccountTypeNode = accountTypeNode
-            accountBookNode.account_cycle = viewModel.account_cycle
-            accountBookNode.account_budget = viewModel.accountBudget
-            accountBookNode.balance_rolling = viewModel.balanceRolling
-            startActivity(Intent(this, MainActivity::class.java))
-        })
+//        val realm = Realm.getDefaultInstance()
+////        realm.beginTransaction()
+//        realm.executeTransaction({
+//            val accountBookNode = realm.createObject(AccountBookNode::class.java)
+//            accountBookNode.book_name = viewModel.bookName
+//            val accountTypeNode = realm.createObject(AccountTypeNode::class.java)
+//            accountTypeNode.typeName = viewModel.moneySymbol
+//            accountBookNode.mAccountTypeNode = accountTypeNode
+//            accountBookNode.account_cycle = viewModel.account_cycle
+//            accountBookNode.account_budget = viewModel.accountBudget
+//            accountBookNode.balance_rolling = viewModel.balanceRolling
+//            startActivity(Intent(this, MainActivity::class.java))
+//        })
         PreferencesUtils.putValue(PreferencesUtils.KEY_HAS_BUDGET, true)
 //        realm.addChangeListener {  }
 //        realm.commitTransaction()

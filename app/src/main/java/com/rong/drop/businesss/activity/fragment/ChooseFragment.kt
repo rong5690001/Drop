@@ -48,7 +48,7 @@ class ChooseFragment : SimpleFragment() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        mPageType = arguments.getInt(KEY_PAGE_TYPE)
+        mPageType = arguments!!.getInt(KEY_PAGE_TYPE)
         title.setTypefaceExtension(TextUtils.MONTSERRAT_BOLD)
         hint.setTypefaceExtension(TextUtils.OPENSANS_REGULAR)
         if (mPageType == PAGE_TYPE_MONEY) {

@@ -25,8 +25,7 @@ abstract class BaseFragment<P : BasePresenter<V, VM>, V : BaseView, VM : BaseVie
     abstract fun buildViewModel(): VM
     abstract fun getIView(): V
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View
         if (layoutId != -1) {
             view = LayoutInflater.from(context).inflate(layoutId, container, false)

@@ -7,8 +7,4 @@ import com.rong.drop.viewmodel.MyBudgetsViewModel
 /**
  * Created by Administrator on 2017/12/24/024.
  */
-class MyBudgetsPresenter : BasePresenter<DefaultView<MyBudgetsViewModel>, MyBudgetsViewModel>() {
-
-
-
-}
+class MyBudgetsPresenter : BasePresenter<DefaultView<MyBudgetsViewModel>, MyBudgetsViewModel>()

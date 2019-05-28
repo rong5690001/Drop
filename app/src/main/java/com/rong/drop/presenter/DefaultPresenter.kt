@@ -7,5 +7,4 @@ import com.rong.drop.viewmodel.DefaultViewModel
 /**
  * Created by chen.huarong on 2017/12/12.
  */
-class DefaultPresenter : BasePresenter<DefaultView<DefaultViewModel>, DefaultViewModel>(){
-}
+class DefaultPresenter : BasePresenter<DefaultView<DefaultViewModel>, DefaultViewModel>()

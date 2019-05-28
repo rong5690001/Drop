@@ -5,9 +5,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
-import android.widget.TextView
 import com.rong.drop.BR
-import com.rong.drop.utils.TextUtils
 
 /**
  * Created by chen.huarong on 2018/1/18.
@@ -25,7 +23,7 @@ abstract class BaseBindingFragment<V : BaseView, VM : BaseViewModel, Binding : V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<Binding>(activity, layoutId)
+        binding = DataBindingUtil.setContentView(activity!!, layoutId)
         initValue()
         view = getIView()
         viewModel = buildViewModel()
@@ -36,10 +34,6 @@ abstract class BaseBindingFragment<V : BaseView, VM : BaseViewModel, Binding : V
 
     open fun initValue() {
 
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
     override fun onClick(v: View?) {
