@@ -8,14 +8,13 @@ import com.rong.drop.R
 import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.businesss.view.DefaultView
-import com.rong.drop.database.AccountBookNode
-import com.rong.drop.database.AccountTypeNode
+import com.rong.drop.extensions.dropStartActivity
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.PreferencesUtils
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
-import com.rong.drop.utils.setTypefaceExtension
+import com.rong.drop.extensions.setTypefaceExtension
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
 //import io.realm.Realm
@@ -156,6 +155,7 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
 //            accountBookNode.balance_rolling = viewModel.balanceRolling
 //            startActivity(Intent(this, MainActivity::class.java))
 //        })
+        dropStartActivity(MainActivity::class.java)
         PreferencesUtils.putValue(PreferencesUtils.KEY_HAS_BUDGET, true)
 //        realm.addChangeListener {  }
 //        realm.commitTransaction()

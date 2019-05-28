@@ -1,10 +1,9 @@
-package com.rong.drop.utils
+package com.rong.drop.extensions
 
 import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.Toast
-import java.text.DecimalFormat
 
 /**
  * Created by chen.huarong on 2018/1/18.
