@@ -137,7 +137,7 @@ public class AccountNodeTool {
     public long getLastCycleTime(AccountBookNode accountBookNode) {
         // 一天秒数
         int ONE_DAY_MINLLINS = 86400;
-        long lastRollingDate = accountBookNode.rb_update_time;
+//        long lastRollingDate = accountBookNode.rb_update_time;
         int distanceDay = 0;
         long cycleTime = 0l;
         //-----------------最后一个预算结算日所处的时间点-----------------------------

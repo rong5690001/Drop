@@ -5,10 +5,8 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.TextView
 import com.rong.drop.BR
 import com.rong.drop.DropApplication
-import com.rong.drop.utils.TextUtils
 
 /**
  * Created by chen.huarong on 2017/11/20.
@@ -26,7 +24,7 @@ abstract class BaseBindingActivity<V : BaseView, VM : BaseViewModel, Binding : V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<Binding>(this, layoutId)
+        binding = DataBindingUtil.setContentView(this, layoutId)
         initValue()
         view = getIView()
         viewModel = buildViewModel()
