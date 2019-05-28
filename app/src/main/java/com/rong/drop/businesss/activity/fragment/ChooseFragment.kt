@@ -8,7 +8,7 @@ import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleRecyclerAdapter
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
-import com.rong.drop.extensions.setTypefaceExtension
+import com.rong.drop.framework.extensions.setTypefaceExtension
 import com.rong.drop.viewmodel.SimpleItemMapper
 import kotlinx.android.synthetic.main.fragment_choose.*
 

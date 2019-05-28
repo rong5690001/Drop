@@ -7,7 +7,7 @@ import com.rong.drop.R
 import com.rong.drop.businesss.activity.BudGetCreateActivity
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.utils.TextUtils
-import com.rong.drop.extensions.setTypefaceExtension
+import com.rong.drop.framework.extensions.setTypefaceExtension
 import kotlinx.android.synthetic.main.fragment_create_bug_get_name.*
 
 class CreateBudGetNameFragment : SimpleFragment() {

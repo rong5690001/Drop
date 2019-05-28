@@ -8,7 +8,7 @@ import com.rong.drop.databinding.ActivityMainBinding
 import com.rong.drop.framework.base.BaseBindingActivity
 import com.rong.drop.utils.SystemBarUtil
 import com.rong.drop.utils.TextUtils
-import com.rong.drop.extensions.setTypefaceExtension
+import com.rong.drop.framework.extensions.setTypefaceExtension
 import com.rong.drop.viewmodel.FaildViewModel
 import com.rong.drop.viewmodel.MainViewModel
 import com.rong.drop.widget.MetaballDebugView

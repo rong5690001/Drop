@@ -1,6 +1,6 @@
 package com.rong.drop.utils
 
-import com.rong.drop.extensions.pinpoint
+import com.rong.drop.framework.extensions.pinpoint
 
 /**
  * Created by chen.huarong on 2017/12/7.
