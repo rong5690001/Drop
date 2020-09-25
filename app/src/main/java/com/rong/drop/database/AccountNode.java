@@ -1,5 +1,8 @@
 package com.rong.drop.database;
 
+import com.rong.drop.framework.extensions.ActvityExtensionKt;
+import com.rong.drop.object.BudgetObject;
+
 /**
  * 账单表数据结构
  * Created by Administrator on 2017/7/3.
@@ -83,6 +86,4 @@ public class AccountNode {
 //    public static int LINE_STATUS_BOTTOM = LINE_STATUS_UP + 1;
 //    @Ignore
 //    public static int LINE_STATUS_NONE = LINE_STATUS_BOTTOM + 1;
-
-
 }
