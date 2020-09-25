@@ -4,21 +4,21 @@ import android.support.v4.app.Fragment
 import android.view.View
 import com.rong.drop.MainActivity
 import com.rong.drop.R
-import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.businesss.activity.fragment.*
 import com.rong.drop.businesss.view.DefaultView
+import com.rong.drop.framework.base.BaseActivity
 import com.rong.drop.framework.extensions.dropStartActivity
+import com.rong.drop.framework.extensions.setTypefaceExtension
 import com.rong.drop.framework.simple.SimpleFragment
 import com.rong.drop.presenter.BudGetCreatePresenter
 import com.rong.drop.utils.PreferencesUtils
 import com.rong.drop.utils.TextUtils
 import com.rong.drop.utils.ToastUtil
-import com.rong.drop.framework.extensions.setTypefaceExtension
 import com.rong.drop.viewmodel.BudGetCreateViewModel
 import com.rong.drop.viewmodel.FaildViewModel
-//import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_bug_get_create.*
 
+//import io.realm.Realm
 class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<BudGetCreateViewModel>, BudGetCreateViewModel>()
         , View.OnClickListener, DefaultView<BudGetCreateViewModel> {
 
@@ -72,7 +72,8 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
 
     private fun next() {
         if (mCurrentIndex > -1 && mFragments[mCurrentIndex]?.isValid == false) {
-            ToastUtil.makeToast(mFragments[mCurrentIndex]?.validMessage ?: getString(R.string.error))
+            ToastUtil.makeToast(mFragments[mCurrentIndex]?.validMessage
+                    ?: getString(R.string.error))
             return
         }
         var fragment: SimpleFragment
@@ -154,9 +155,12 @@ class BudGetCreateActivity : BaseActivity<BudGetCreatePresenter, DefaultView<Bud
 //            accountBookNode.balance_rolling = viewModel.balanceRolling
 //            startActivity(Intent(this, MainActivity::class.java))
 //        })
+        var a = 0
         dropStartActivity(MainActivity::class.java)
         PreferencesUtils.putValue(PreferencesUtils.KEY_HAS_BUDGET, true)
 //        realm.addChangeListener {  }
 //        realm.commitTransaction()
     }
+
+
 }
