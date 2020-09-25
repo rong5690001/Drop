@@ -23,11 +23,7 @@ open class BasePresenter<V, VM> {
         mViewModelRef = null
     }
 
-    fun getView() = {
-        mViewRef?.get()
-    }
+    fun getView() = run { mViewRef?.get() }
 
-    fun getViewModel() = {
-        mViewModelRef?.get()
-    }
+    fun getViewModel() = run { mViewModelRef?.get() }
 }
